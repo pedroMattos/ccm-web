@@ -3,14 +3,20 @@
       <h1>CCM - Web Version <span>Embryo version</span> <iconVer/></h1>
       <div class="row">
         <div class="col md4 quadros"><all/></div>
-        <div class="col md4 quadros"><all/></div>
-        <div class="col md4 quadros"><all/></div>
+        <div class="col md4 quadros"><maint/></div>
+        <div class="col md4 quadros"><crit/></div>
+      </div>
+      <div class="row">
+        <div class="col md4 quadros"><dam/></div>
       </div>
     </div>
 </template>
 
 <script>
 import all from './quadros/all';
+import crit from './quadros/critical';
+import dam from './quadros/damaged';
+import maint from './quadros/maintence';
 import iconVer from './svg-components/embryo-version';
 
 export default {
@@ -18,6 +24,9 @@ export default {
   components: {
     all,
     iconVer,
+    crit,
+    dam,
+    maint,
   },
 };
 </script>

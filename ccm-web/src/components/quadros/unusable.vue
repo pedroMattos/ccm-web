@@ -1,6 +1,6 @@
 <template>
-    <div id="main-all-pc">
-      <h2>Todos (já cadastrados)</h2>
+    <div id="main-maint-pc">
+      <h2>Máquinas paradas (sem dono)</h2>
       <p>Contagem: <span>{{ count }}</span></p>
       <p class="center">Ver</p>
     </div>
@@ -8,29 +8,29 @@
 
 <script>
 export default {
-  name: 'all',
+  name: 'maintence',
   data() {
     return {
-      count: '25',
+      count: '10',
     };
   },
 };
 </script>
 
 <style>
-  #main-all-pc {
-    background-color: green;
+  #main-maint-pc {
+    background-color: #024873;
     border-radius: 8px;
     color: white;
     height: 100px;
     width: 300px;
     padding: 10px;
   }
-  #main-all-pc h2{
+  #main-maint-pc h2{
     font-size: 15px;
     margin: 0;
   }
-  #main-all-pc p {
+  #main-maint-pc p {
     margin-bottom: 0;
   }
 </style>
