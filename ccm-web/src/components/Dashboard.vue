@@ -1,6 +1,6 @@
 <template>
     <div class="col md9" id="main-dashboard">
-      <h1>CCM - Web Version <span>First version</span></h1>
+      <h1>CCM - Web Version <span>Embryo version</span> <iconVer/></h1>
       <div class="row">
         <div class="col md4 quadros"><all/></div>
         <div class="col md4 quadros"><all/></div>
@@ -11,11 +11,13 @@
 
 <script>
 import all from './quadros/all';
+import iconVer from './svg-components/embryo-version';
 
 export default {
   name: 'dashboard',
   components: {
     all,
+    iconVer,
   },
 };
 </script>
