@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="row" id="app">
     <sidebar/>
     <router-view></router-view>
   </div>
@@ -22,5 +22,9 @@ export default {
   }
   a {
     color: black;
+  }
+  .row#app {
+    margin: 0;
+    padding: 0;
   }
 </style>

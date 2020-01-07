@@ -1,5 +1,5 @@
 <template>
-  <div id="main-sidebar">
+  <div class="col md3" id="main-sidebar">
     <div id="header-sidebar">
       <p>{{ name }}</p>
       <p>{{ email }}</p>
