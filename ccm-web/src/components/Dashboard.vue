@@ -1,18 +1,19 @@
 <template>
-    <div class="col md9" id="main-dashboard">
-      <h1>CCM - Web Version <span>Embryo version</span> <iconVer/></h1>
+    <div class="col m9 main-page" id="main-dashboard">
+      <h1>CCM - Web Version <span>Embryo Ⅰ</span> <iconVer/></h1>
       <div class="row">
-        <div class="col md4 quadros"><all/></div>
-        <div class="col md4 quadros"><maint/></div>
-        <div class="col md4 quadros"><crit/></div>
+        <div class="col m4 quadros"><all/></div>
+        <div class="col m4 quadros"><maint/></div>
+        <div class="col m4 quadros"><crit/></div>
       </div>
       <div class="row">
-        <div class="col md4 quadros"><dam/></div>
+        <div class="col m4 quadros"><dam/></div>
       </div>
     </div>
 </template>
 
 <script>
+// importa os quadros
 import all from './quadros/all';
 import crit from './quadros/critical';
 import dam from './quadros/damaged';
@@ -21,6 +22,7 @@ import iconVer from './svg-components/embryo-version';
 
 export default {
   name: 'dashboard',
+  // inicia componentes externos
   components: {
     all,
     iconVer,
@@ -32,10 +34,6 @@ export default {
 </script>
 
 <style>
-  #main-dashboard {
-    padding-top: 20px;
-    padding-left: 20px;
-  }
   #main-dashboard h1{
     font-size: 32px;
   }
