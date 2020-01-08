@@ -27,4 +27,25 @@ export default {
     margin: 0;
     padding: 0;
   }
+  .main-page {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  .main-page h1 {
+    font-size: 32px
+  }
+  .dash-block {
+    border-radius: 8px;
+    color: white;
+    height: 110px;
+    width: 300px;
+    padding: 10px;
+  }
+  .dash-block h2 {
+    font-size: 15px;
+    margin: 0;
+  }
+  .dash-block p {
+    margin-bottom: 0;
+  }
 </style>
