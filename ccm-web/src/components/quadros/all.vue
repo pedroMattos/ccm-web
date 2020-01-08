@@ -1,5 +1,5 @@
 <template>
-    <div id="main-all-pc">
+    <div class="dash-block" id="main-all-pc">
       <h2>Todos (já cadastrados)</h2>
       <p>Contagem: <span>{{ count }}</span></p>
       <p class="center">Ver</p>
@@ -20,17 +20,5 @@ export default {
 <style>
   #main-all-pc {
     background-color: green;
-    border-radius: 8px;
-    color: white;
-    height: 100px;
-    width: 300px;
-    padding: 10px;
-  }
-  #main-all-pc h2{
-    font-size: 15px;
-    margin: 0;
-  }
-  #main-all-pc p {
-    margin-bottom: 0;
   }
 </style>
