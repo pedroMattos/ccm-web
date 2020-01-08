@@ -8,6 +8,7 @@
       </div>
       <div class="row">
         <div class="col m4 quadros"><dam/></div>
+        <div class="col m4 quadros"><unused/></div>
       </div>
     </div>
 </template>
@@ -18,6 +19,7 @@ import all from './quadros/all';
 import crit from './quadros/critical';
 import dam from './quadros/damaged';
 import maint from './quadros/maintence';
+import unused from './quadros/unusable';
 import iconVer from './svg-components/embryo-version';
 
 export default {
@@ -29,6 +31,7 @@ export default {
     crit,
     dam,
     maint,
+    unused,
   },
 };
 </script>
