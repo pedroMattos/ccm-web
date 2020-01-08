@@ -1,7 +1,7 @@
 <template>
     <form class="col s12">
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s6 m">
           <input placeholder="Tombo" id="tombo" v-model="tombo" name="tombo" type="text">
         </div>
       </div>
