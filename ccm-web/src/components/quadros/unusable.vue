@@ -1,5 +1,5 @@
 <template>
-    <div class="dash-block" id="main-maint-pc">
+    <div class="dash-block" id="main-unu-pc">
       <h2>Máquinas paradas (sem dono)</h2>
       <p>Contagem: <span>{{ count }}</span></p>
       <p class="center">Ver</p>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'maintence',
+  name: 'unused',
   data() {
     return {
       count: '10',
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style>
-  #main-maint-pc {
-    background-color: #024873;
+  #main-unu-pc {
+    background-color: rgb(80, 130, 173);
   }
 </style>
