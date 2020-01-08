@@ -1,31 +1,20 @@
 <template>
-    <div id="main-new-entry">
-      <h1>Nova entrada <span>Embryo version</span></h1>
+    <div class="main-page col m9" id="main-new-entry">
+      <router-link :to="{ name: 'Home' }"><back/></router-link>
+      <h1>Nova entrada</h1>
+      <newEntryForm/>
     </div>
 </template>
 
 <script>
+import back from './svg-components/back';
+import newEntryForm from './forms/newEntryForm';
+
 export default {
   name: 'newEntry',
+  components: {
+    back,
+    newEntryForm,
+  },
 };
 </script>
-
-<style>
-  #main-new-entry {
-    padding-top: 20px;
-    padding-left: 20px;
-  }
-  #main-new-entry h1{
-    font-size: 32px;
-  }
-    #main-new-entry h1 span{
-      background-color: green;
-      padding: 2px;
-      border-radius: 5px;
-      color: white;
-      font-size: 12px;
-  }
-  .quadros {
-    position: relative;
-  }
-</style>
