@@ -8,7 +8,7 @@
     <div id="body-sidebar">
       <ul>
         <li>Todas as máquinas</li>
-        <li>Minhas entradas</li>
+        <router-link :to="{ name: 'MyEntries' }"><li>Minhas entradas</li></router-link>
         <router-link :to="{ name: 'NewEntry' }"><li>Nova entrada</li></router-link>
         <li id="logout">Logout
         <i class="material-icons tiny icon-sidebar">power_settings_new</i></li>
