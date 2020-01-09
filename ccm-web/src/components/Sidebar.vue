@@ -7,7 +7,7 @@
     <div id="separation"></div>
     <div id="body-sidebar">
       <ul>
-        <li>Todas as máquinas</li>
+        <router-link :to="{ name: 'AllEntries' }"><li>Todas as máquinas</li></router-link>
         <router-link :to="{ name: 'MyEntries' }"><li>Minhas entradas</li></router-link>
         <router-link :to="{ name: 'NewEntry' }"><li>Nova entrada</li></router-link>
         <li id="logout">Logout
@@ -34,6 +34,7 @@ export default {
     max-width: 300px;
     height: 100vh;
     border-right: 1px solid #0D0D0D;
+    position: fixed;
   }
   #header-sidebar {
     padding: 20px;
