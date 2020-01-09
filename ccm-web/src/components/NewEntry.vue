@@ -2,6 +2,10 @@
     <div class="main-page col m9" id="main-new-entry">
       <router-link :to="{ name: 'Home' }"><back/></router-link>
       <h1>Nova entrada</h1>
+        <blockquote class="tip">
+          <h2 class="grey-text lighten-2"
+          id="sub-t-page"><p>Dê entradas nas máquinas em manutenção</p></h2>
+        </blockquote>
       <newEntryForm/>
     </div>
 </template>
@@ -18,3 +22,7 @@ export default {
   },
 };
 </script>
+
+<style>
+
+</style>
