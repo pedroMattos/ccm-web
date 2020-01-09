@@ -1,6 +1,6 @@
 <template>
   <div class="row" id="app">
-    <sidebar/>
+    <sidebar v-if="uid != ''"/>
     <router-view></router-view>
   </div>
 </template>
@@ -12,6 +12,11 @@ export default {
   name: 'App',
   components: {
     sidebar,
+  },
+  data() {
+    return {
+      uid: '',
+    };
   },
 };
 </script>
@@ -30,6 +35,7 @@ export default {
   .main-page {
     padding-top: 20px;
     padding-left: 20px;
+    transform: translateX(300px);
   }
   .main-page h1 {
     font-size: 32px
