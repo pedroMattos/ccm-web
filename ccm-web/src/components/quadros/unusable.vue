@@ -7,18 +7,34 @@
 </template>
 
 <script>
+import bd from '../firebaseinit';
+
 export default {
   name: 'unused',
   data() {
     return {
-      count: '10',
+      count: '',
+      name: 'inutilizado',
     };
+  },
+  created() {
+    var context = this;
+    var docRef = bd.collection("Máquinas");
+    docRef.get().then(function(doc) {
+      var i = 0;
+      doc.forEach(doc => {
+        if(doc.data().Estado == context.name) {
+          i ++;
+          context.count = i;
+        }
+      });
+    });
   },
 };
 </script>
 
 <style>
-  #main-unu-pc {
+  #main-unu-pc, .maquina-parada {
     background-color: rgb(80, 130, 173);
   }
 </style>
