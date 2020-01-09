@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Dashboard from '@/components/Dashboard';
 import NewEntry from '@/components/NewEntry';
 import MyEntry from '@/components/MyEntries';
+import AllEntries from '@/components/AllEntries';
+import Login from '@/components/Login';
 
 Vue.use(Router);
 
@@ -23,6 +25,16 @@ export default new Router({
       path: '/my-entries',
       name: 'MyEntries',
       component: MyEntry,
+    },
+    {
+      path: '/all-entries',
+      name: 'AllEntries',
+      component: AllEntries,
+    },
+    {
+      path: '/login-user',
+      name: 'Login',
+      component: Login,
     },
   ],
 });
