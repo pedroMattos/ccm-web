@@ -1,6 +1,5 @@
 <template>
-  <div class="row" id="app">
-    <sidebar v-if="uid != ''"/>
+  <div id="app">
     <router-view></router-view>
   </div>
 </template>
@@ -15,7 +14,6 @@ export default {
   },
   data() {
     return {
-      uid: '',
     };
   },
 };

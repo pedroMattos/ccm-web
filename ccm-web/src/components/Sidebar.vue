@@ -10,21 +10,51 @@
         <router-link :to="{ name: 'AllEntries' }"><li>Todas as máquinas</li></router-link>
         <router-link :to="{ name: 'MyEntries' }"><li>Minhas entradas</li></router-link>
         <router-link :to="{ name: 'NewEntry' }"><li>Nova entrada</li></router-link>
-        <li id="logout">Logout
+        <li @click="logout()" id="logout">Logout
         <i class="material-icons tiny icon-sidebar">power_settings_new</i></li>
       </ul>
     </div>
   </div>
 </template>
 <script>
+import auth from './firebaseinit';
+
 export default {
   name: 'sidebar',
   data() {
     return {
       name: 'teste',
-      email: 'teste@gmail.com',
+      email: '',
     };
   },
+  created() {
+    var context = this;
+    auth.app.auth().onAuthStateChanged(user => {
+      // se user.uid não estiver vazio, loga, senao nulo
+      window.uid = user ? user.uid : null
+      if(window.uid) {
+        context.email = auth.app.auth().currentUser.email
+      };
+    });
+  },
+  mounted() {
+    var context = this;
+    auth.app.auth().onAuthStateChanged(user => {
+      // se user.uid não estiver vazio, loga, senao nulo
+      window.uid = user ? user.uid : null
+      if(!window.uid) {
+        this.$router.push({ name: 'Login' });
+        location.reload();
+      }
+    });
+  },
+    methods: {
+      async logout() {
+        await auth.app.auth().signOut()
+        this.$router.push({ name: 'Login' });
+        location.reload();
+      }
+    },
 };
 </script>
 

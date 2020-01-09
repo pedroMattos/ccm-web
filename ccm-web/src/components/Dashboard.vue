@@ -1,4 +1,6 @@
 <template>
+  <div class="row">
+    <sidebar v-if="uid != null"/>
     <div class="col m9 main-page" id="main-dashboard">
       <h1>CCM - Web Version <span>Embryo Ⅰ</span> <iconVer/></h1>
       <div class="row">
@@ -11,9 +13,11 @@
         <div class="col m4 quadros"><unused/></div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
+import auth from './firebaseinit';
 // importa os quadros
 import all from './quadros/all';
 import crit from './quadros/critical';
@@ -21,6 +25,7 @@ import dam from './quadros/damaged';
 import maint from './quadros/maintence';
 import unused from './quadros/unusable';
 import iconVer from './svg-components/embryo-version';
+import sidebar from './Sidebar';
 
 export default {
   name: 'dashboard',
@@ -32,6 +37,15 @@ export default {
     dam,
     maint,
     unused,
+    sidebar,
+  },
+  data() {
+    return {
+      uid: '',
+    };
+  },
+  mounted() {
+    this.uid = auth.app.auth().currentUser.uid
   },
 };
 </script>
