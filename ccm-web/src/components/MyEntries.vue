@@ -6,7 +6,7 @@
         <h2 class="grey-text lighten-2"
         id="sub-t-page">Aqui você pode ver e atualizar todas as suas entradas</h2>
       </blockquote>
-      <div class="main-page row">
+      <div class="row">
         <myentry/>
       </div>
     </div>
