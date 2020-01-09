@@ -7,13 +7,23 @@
 </template>
 
 <script>
+import bd from '../firebaseinit';
+
 export default {
   name: 'all',
   data() {
     return {
-      count: '25',
+      count: '',
+      name: 'all',
     };
   },
+  created() {
+  var context = this;
+  var docRef = bd.collection("Máquinas");
+  docRef.get().then(function(doc) {
+    context.count = doc.docs.length;
+  });
+},
 };
 </script>
 
