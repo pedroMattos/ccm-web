@@ -80,7 +80,6 @@ export default {
       // eslint-disable-next-line prefer-template
       const qr = url + context.tombo + ';' + context.modelo + ';' + context.issue + ';' + date + ';' + context.name;
       context.url = qr;
-    // eslint-disable-next-line no-console
     },
   },
 };
