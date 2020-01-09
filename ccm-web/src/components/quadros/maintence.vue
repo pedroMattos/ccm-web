@@ -1,5 +1,5 @@
 <template>
-    <div class="dash-block" id="main-maint-pc">
+    <div :class="[name,'dash-block']">
       <h2>Em manutenção</h2>
       <p>Contagem: <span>{{ count }}</span></p>
       <p class="center">Ver</p>
@@ -7,18 +7,34 @@
 </template>
 
 <script>
+import bd from '../firebaseinit';
+
 export default {
   name: 'maintence',
   data() {
     return {
-      count: '10',
+      count: '',
+      name: 'em-manutencao',
     };
+  },
+  created() {
+    var context = this;
+    var docRef = bd.collection("Máquinas");
+    docRef.get().then(function(doc) {
+      var i = 0;
+      doc.forEach(doc => {
+        if(doc.data().Estado == context.name) {
+          i ++;
+          context.count = i;
+        }
+      });
+    });
   },
 };
 </script>
 
 <style>
-  #main-maint-pc {
+  #main-maint-pc, .em-manutencao {
     background-color: #024873;
   }
 </style>
