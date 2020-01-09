@@ -28,33 +28,33 @@ export default {
     };
   },
   created() {
-    var context = this;
-    auth.app.auth().onAuthStateChanged(user => {
+    const context = this;
+    auth.app.auth().onAuthStateChanged((user) => {
       // se user.uid não estiver vazio, loga, senao nulo
-      window.uid = user ? user.uid : null
-      if(window.uid) {
-        context.email = auth.app.auth().currentUser.email
-      };
+      window.uid = user ? user.uid : null;
+      if (window.uid) {
+        context.email = auth.app.auth().currentUser.email;
+      }
     });
   },
   mounted() {
-    var context = this;
-    auth.app.auth().onAuthStateChanged(user => {
+    const context = this;
+    auth.app.auth().onAuthStateChanged((user) => {
       // se user.uid não estiver vazio, loga, senao nulo
-      window.uid = user ? user.uid : null
-      if(!window.uid) {
+      window.uid = user ? user.uid : null;
+      if (!window.uid) {
         this.$router.push({ name: 'Login' });
         location.reload();
       }
     });
   },
-    methods: {
-      async logout() {
-        await auth.app.auth().signOut()
-        this.$router.push({ name: 'Login' });
-        location.reload();
-      }
+  methods: {
+    async logout() {
+      await auth.app.auth().signOut();
+      this.$router.push({ name: 'Login' });
+      location.reload();
     },
+  },
 };
 </script>
 

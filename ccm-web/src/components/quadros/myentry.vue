@@ -26,11 +26,11 @@ export default {
     };
   },
   created() {
-    var context = this;
-    var docRef = bd.collection("Máquinas").where('Uid', '==', context.uid);
-    docRef.get().then(function(doc) {
-      doc.forEach(doc => {
-          const data = {
+    const context = this;
+    const docRef = bd.collection('Máquinas').where('Uid', '==', context.uid);
+    docRef.get().then((doc) => {
+      doc.forEach((doc) => {
+        const data = {
           uid: doc.Uid,
           tombo: doc.data().Tombo,
           details: doc.data().Detalhes,
@@ -40,8 +40,8 @@ export default {
           situation: doc.id,
           owner: doc.data().Dono,
           issue: doc.data().Problema,
-          };
-          context.block.push(data);
+        };
+        context.block.push(data);
       });
     });
   },

@@ -32,7 +32,7 @@ export default {
     };
   },
   mounted() {
-    this.uid = auth.app.auth().currentUser.uid
+    this.uid = auth.app.auth().currentUser.uid;
   },
 };
 </script>

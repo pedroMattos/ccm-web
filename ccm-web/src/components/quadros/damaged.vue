@@ -18,13 +18,13 @@ export default {
     };
   },
   created() {
-    var context = this;
-    var docRef = bd.collection("Máquinas");
-    docRef.get().then(function(doc) {
-      var i = 0;
-      doc.forEach(doc => {
-        if(doc.data().Estado == context.name) {
-          i ++;
+    const context = this;
+    const docRef = bd.collection('Máquinas');
+    docRef.get().then((doc) => {
+      let i = 0;
+      doc.forEach((doc) => {
+        if (doc.data().Estado == context.name) {
+          i++;
           context.count = i;
         }
       });

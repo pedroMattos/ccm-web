@@ -25,21 +25,21 @@ export default {
     };
   },
   created() {
-    var context = this;
-    var docRef = bd.collection("Máquinas");
-    docRef.get().then(function(doc) {
-      doc.forEach(doc => {
+    const context = this;
+    const docRef = bd.collection('Máquinas');
+    docRef.get().then((doc) => {
+      doc.forEach((doc) => {
         const data = {
-          'uid': doc.Uid,
-          'tombo': doc.data().Tombo,
-          'details': doc.data().Detalhes,
-          'date': doc.data().Data,
-          'modelo': doc.data().Modelo,
-          'name': doc.data().Responsável,
-          'situation': doc.data().Estado,
-          'owner': doc.data().Dono,
-          'issue': doc.data().Problema,
-        }
+          uid: doc.Uid,
+          tombo: doc.data().Tombo,
+          details: doc.data().Detalhes,
+          date: doc.data().Data,
+          modelo: doc.data().Modelo,
+          name: doc.data().Responsável,
+          situation: doc.data().Estado,
+          owner: doc.data().Dono,
+          issue: doc.data().Problema,
+        };
         context.block.push(data);
       });
     });

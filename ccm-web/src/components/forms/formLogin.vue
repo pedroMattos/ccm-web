@@ -30,21 +30,21 @@ export default {
   methods: {
     async login() {
       // recupera o valor das variaveis
-      const { email, password } = this
+      const { email, password } = this;
       try {
         // realiza a autenticação
-        const res = await auth.app.auth().signInWithEmailAndPassword(email, password)
-        window.uid = res.user.uid
-        if(window.uid) {
-            this.$router.push({ name: 'Home' })
+        const res = await auth.app.auth().signInWithEmailAndPassword(email, password);
+        window.uid = res.user.uid;
+        if (window.uid) {
+          this.$router.push({ name: 'Home' });
         } else {
-            this.$router.push({ name: 'login' })
+          this.$router.push({ name: 'login' });
         }
-    } catch(e) {
-        console.warn(e)
-    }
-  }
-},
+      } catch (e) {
+        console.warn(e);
+      }
+    },
+  },
 };
 </script>
 

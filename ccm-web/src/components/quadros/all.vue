@@ -18,12 +18,12 @@ export default {
     };
   },
   created() {
-  var context = this;
-  var docRef = bd.collection("Máquinas");
-  docRef.get().then(function(doc) {
-    context.count = doc.docs.length;
-  });
-},
+    const context = this;
+    const docRef = bd.collection('Máquinas');
+    docRef.get().then((doc) => {
+      context.count = doc.docs.length;
+    });
+  },
 };
 </script>
 
