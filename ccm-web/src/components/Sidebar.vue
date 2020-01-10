@@ -33,13 +33,16 @@ export default {
   },
   created() {
     const context = this;
-    const docRef = auth.collection('Controller').where('Uid', '==', window.uid);
+    const docRef = auth.collection('Controller');
     docRef.get().then((doc) => {
       // eslint-disable-next-line no-shadow
       doc.forEach((doc) => {
-        context.nivel = doc.data().Nivel;
-        context.permiss = doc.data().Permiss;
-        context.name = doc.data().Nome;
+        // eslint-disable-next-line eqeqeq
+        if (doc.id == window.uid) {
+          context.nivel = doc.data().Nivel;
+          context.permiss = doc.data().Permiss;
+          context.name = doc.data().Nome;
+        }
       });
     });
     auth.app.auth().onAuthStateChanged((user) => {
