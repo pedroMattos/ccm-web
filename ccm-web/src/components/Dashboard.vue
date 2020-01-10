@@ -2,7 +2,7 @@
   <div class="row">
     <sidebar v-if="uid != null"/>
     <div class="col m9 main-page" id="main-dashboard">
-      <h1>CCM - Web Version <span>Embryo Ⅰ</span> <iconVer/></h1>
+      <h1>CCM - Web Version <span>Embryo ⅠⅠ</span> <iconVer/></h1>
       <div class="row">
         <div class="col m4 quadros"><all/></div>
         <div class="col m4 quadros"><maint/></div>
