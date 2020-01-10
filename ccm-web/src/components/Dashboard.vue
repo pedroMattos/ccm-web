@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import auth from './firebaseinit';
+// import auth from './firebaseinit';
 // importa os quadros
 import all from './quadros/all';
 import crit from './quadros/critical';
@@ -43,9 +43,6 @@ export default {
     return {
       uid: '',
     };
-  },
-  mounted() {
-    this.uid = auth.app.auth().currentUser.uid;
   },
 };
 </script>
