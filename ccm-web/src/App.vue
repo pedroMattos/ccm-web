@@ -6,6 +6,7 @@
 
 <script>
 import sidebar from './components/Sidebar';
+import auth from './components/firebaseinit';
 
 export default {
   name: 'App',
@@ -15,6 +16,19 @@ export default {
   data() {
     return {
     };
+  },
+  mounted() {
+    // const context = this;
+    auth.app.auth().onAuthStateChanged((user) => {
+      // se user.uid não estiver vazio, loga, senao nulo
+      window.uid = user ? user.uid : null;
+      if (!window.uid) {
+        if (window.location.pathname.indexOf('/login-user') < 0) {
+          this.$router.push({ name: 'Login' });
+          location.reload();
+        }
+      }
+    });
   },
 };
 </script>
