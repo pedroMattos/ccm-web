@@ -38,7 +38,7 @@ export default new Router({
       component: Login,
     },
     {
-      path: '/gerenace',
+      path: '/gerence',
       name: 'Admin',
       component: Geral,
     },
