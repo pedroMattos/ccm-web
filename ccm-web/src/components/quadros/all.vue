@@ -2,7 +2,8 @@
     <div class="dash-block" id="main-all-pc">
       <h2>Todos (já cadastrados)</h2>
       <p>Contagem: <span>{{ count }}</span></p>
-      <p class="center">Ver</p>
+      <router-link
+      :to="{ name: 'AllEntries' }"><p class="center">Ver</p></router-link>
     </div>
 </template>
 

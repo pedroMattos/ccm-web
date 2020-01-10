@@ -2,7 +2,8 @@
     <div :class="[name, 'dash-block']">
       <h2>Inutilizados</h2>
       <p>Contagem: <span>{{ count }}</span></p>
-      <p class="center">Ver</p>
+      <router-link
+      :to="{ name: 'filter-entry', params: { nome: name } }"><p class="center">Ver</p></router-link>
     </div>
 </template>
 
@@ -20,10 +21,12 @@ export default {
   created() {
     const context = this;
     const docRef = bd.collection('Máquinas');
-    docRef.get().then((doc) => {
+    docRef.get().then((docs) => {
       let i = 0;
-      doc.forEach((doc) => {
+      docs.forEach((doc) => {
+        // eslint-disable-next-line eqeqeq
         if (doc.data().Estado == context.name) {
+          // eslint-disable-next-line no-plusplus
           i++;
           context.count = i;
         }
@@ -34,9 +37,17 @@ export default {
 </script>
 
 <style>
-  #main-dam-pc, .inutilizado {
+  .inutilizado {
     background-color: white;
     color: #D9042B;
     border: solid #D9042B 1px;
+  }
+  .inutilizado.dash-block a p {
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    background-color: #D9042B;
+    float: left;
+    width: 50px;
   }
 </style>

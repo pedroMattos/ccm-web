@@ -2,7 +2,8 @@
     <div class="dash-block" id="main-unu-pc">
       <h2>Máquinas paradas (sem dono)</h2>
       <p>Contagem: <span>{{ count }}</span></p>
-      <p class="center">Ver</p>
+      <router-link
+      :to="{ name: 'filter-entry', params: { nome: name } }"><p class="center">Ver</p></router-link>
     </div>
 </template>
 

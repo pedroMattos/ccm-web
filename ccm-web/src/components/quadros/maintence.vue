@@ -2,7 +2,8 @@
     <div :class="[name,'dash-block']">
       <h2>Em manutenção</h2>
       <p>Contagem: <span>{{ count }}</span></p>
-      <p class="center">Ver</p>
+      <router-link
+      :to="{ name: 'filter-entry', params: { nome: name } }"><p class="center">Ver</p></router-link>
     </div>
 </template>
 
@@ -22,8 +23,10 @@ export default {
     const docRef = bd.collection('Máquinas');
     docRef.get().then((doc) => {
       let i = 0;
-      doc.forEach((doc) => {
-        if (doc.data().Estado == context.name) {
+      doc.forEach((docs) => {
+        // eslint-disable-next-line eqeqeq
+        if (docs.data().Estado == context.name) {
+          // eslint-disable-next-line no-plusplus
           i++;
           context.count = i;
         }
