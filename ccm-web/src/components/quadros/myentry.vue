@@ -1,6 +1,7 @@
 <template>
     <div class="blocks">
-      <div v-for="item in block" :key="item.tombo" :class="[item.situation, 'dash-block', 'col', 'm4', 'entry']"  >
+      <div v-for="item in block" :key="item.tombo"
+      :class="[item.situation, 'dash-block', 'col', 'm4', 'entry']"  >
         <h2>{{ item.modelo }}</h2>
         <p>Tombo: <span>{{ item.tombo }}</span></p>
         <p>Situação: <span>{{ item.situation }}</span></p>
@@ -21,14 +22,14 @@ export default {
   name: 'myentry',
   data() {
     return {
-      uid: 'q107mrrdKNgAWejfCiSQkeQJVUr2',
       block: [],
     };
   },
   created() {
     const context = this;
-    const docRef = bd.collection('Máquinas').where('Uid', '==', context.uid);
+    const docRef = bd.collection('Máquinas').where('Uid', '==', window.uid);
     docRef.get().then((doc) => {
+      // eslint-disable-next-line no-shadow
       doc.forEach((doc) => {
         const data = {
           uid: doc.Uid,
@@ -37,7 +38,7 @@ export default {
           date: doc.data().Data,
           modelo: doc.data().Modelo,
           name: doc.data().Responsável,
-          situation: doc.id,
+          situation: doc.data().Estado,
           owner: doc.data().Dono,
           issue: doc.data().Problema,
         };
