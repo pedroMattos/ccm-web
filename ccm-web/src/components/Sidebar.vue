@@ -10,6 +10,8 @@
         <router-link :to="{ name: 'AllEntries' }"><li>Todas as máquinas</li></router-link>
         <router-link :to="{ name: 'MyEntries' }"><li>Minhas entradas</li></router-link>
         <router-link :to="{ name: 'NewEntry' }"><li>Nova entrada</li></router-link>
+        <router-link v-if="nivel == 'Admin'" :to="{ name: 'Admin' }">
+          <li>Gerenciador</li></router-link>
         <li @click="logout()" id="logout">Logout
         <i class="material-icons tiny icon-sidebar">power_settings_new</i></li>
       </ul>
@@ -23,28 +25,28 @@ export default {
   name: 'sidebar',
   data() {
     return {
-      name: 'teste',
+      name: '',
       email: '',
+      nivel: '',
+      permiss: '',
     };
   },
   created() {
     const context = this;
+    const docRef = auth.collection('Controller').where('Uid', '==', window.uid);
+    docRef.get().then((doc) => {
+      // eslint-disable-next-line no-shadow
+      doc.forEach((doc) => {
+        context.nivel = doc.data().Nivel;
+        context.permiss = doc.data().Permiss;
+        context.name = doc.data().Nome;
+      });
+    });
     auth.app.auth().onAuthStateChanged((user) => {
       // se user.uid não estiver vazio, loga, senao nulo
       window.uid = user ? user.uid : null;
       if (window.uid) {
         context.email = auth.app.auth().currentUser.email;
-      }
-    });
-  },
-  mounted() {
-    const context = this;
-    auth.app.auth().onAuthStateChanged((user) => {
-      // se user.uid não estiver vazio, loga, senao nulo
-      window.uid = user ? user.uid : null;
-      if (!window.uid) {
-        this.$router.push({ name: 'Login' });
-        location.reload();
       }
     });
   },
