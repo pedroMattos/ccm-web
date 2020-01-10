@@ -1,24 +1,26 @@
 <template>
-    <form method="POST" class="col s12">
+    <form method="POST" @submit.prevent="submit()" class="col s12">
       <div class="row">
         <div class="input-field col s6 m6">
           <input placeholder="Tombo" id="tombo" v-model="tombo" name="tombo" type="text">
           <input placeholder="Modelo" id="modelo" v-model="modelo" name="modelo" type="text">
           <textarea placeholder="Descreva o problema" id="issue" name="issue" v-model="issue"
           class="materialize-textarea"></textarea>
-            <div class="input-field col s12">
+          <input placeholder="Detalhes" id="detalhes" v-model="details" name="detalhes" type="text">
+          <input placeholder="Dono" id="dono" v-model="owner" name="dono" type="text">
+        <div class="input-field col s12">
           <select v-model="situation">
-            <option value="no selected" disabled>Choose your option</option>
-            <option value="maintence">Em manutenção</option>
-            <option value="critial">Estado crítico</option>
-            <option value="damaged">Inutilizado</option>
-            <option value="unused">Sem dono</option>
-            <option value="solutioned">Solucionado</option>
+            <option value="no selected" disabled>Escolha</option>
+            <option value="em-manutencao">Em manutenção</option>
+            <option value="estado-critico">Estado crítico</option>
+            <option value="inutilizado">Inutilizado</option>
+            <option value="sem-dono">Sem dono</option>
+            <option value="solucionado">Solucionado</option>
           </select>
           <label>Situação</label>
         </div>
           <div class="center">
-            <button @click.prevent="qrCodeGenerator"
+            <button type="button" @click.prevent="qrCodeGenerator"
             class="btn waves-effect waves-light">Gerar Código</button>
           </div>
         </div>
@@ -40,6 +42,7 @@
 
 <script>
 import qrcode from '../QR-code-generator';
+import bd from '../firebaseinit';
 
 export default {
   name: 'form-new-entry',
@@ -53,9 +56,10 @@ export default {
       modelo: '',
       issue: '',
       date: '',
-      uid: '345234524',
-      name: 'Pedro',
+      details: '',
+      owner: '',
       url: '',
+      error: '',
     };
   },
   created() {
@@ -70,16 +74,48 @@ export default {
   },
   methods: {
     qrCodeGenerator() {
+      /* eslint-disable prefer-template */
       const context = this;
       const now = new Date();
+      const uid = bd.app.auth().currentUser.uid;
+      const email = bd.app.auth().currentUser.email;
       // eslint-disable-next-line no-template-curly-in-string
       const url = 'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=';
       const month = now.getMonth() + 1;
-      // eslint-disable-next-line prefer-template
       const date = now.getDate() + '/' + month + '/' + now.getFullYear();
-      // eslint-disable-next-line prefer-template
-      const qr = url + context.tombo + ';' + context.modelo + ';' + context.issue + ';' + date + ';' + context.name;
+      context.date = date;
+      const tombo = 'Tombo:' + context.tombo;
+      const modelo = 'Modelo:' + context.modelo;
+      const Uid = 'Uid:' + uid;
+      const issue = 'Problema:' + context.issue;
+      const owner = 'Dono:' + context.owner;
+      const details = 'Detalhes:' + context.details;
+      const qr = url + tombo + ';' + modelo + ';' + issue + ';' + date + ';' + email + ';' + Uid + ';' + owner + ';' + details;
       context.url = qr;
+    },
+    submit() {
+      const context = this;
+      const ref = bd.collection('Máquinas');
+      const id = context.tombo;
+
+      const payload = {
+        Data: context.date,
+        Detalhes: context.details,
+        Dono: context.owner,
+        Estado: context.situation,
+        Modelo: context.modelo,
+        Problema: context.issue,
+        Responsável: bd.app.auth().currentUser.email,
+        Tombo: context.tombo,
+        Uid: bd.app.auth().currentUser.uid,
+      };
+      ref.doc(id).set(payload, (error) => {
+        if (error) {
+          context.error = error;
+        } else {
+          location.reload();
+        }
+      });
     },
   },
 };
