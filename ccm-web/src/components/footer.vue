@@ -1,7 +1,7 @@
 <template>
   <div class="center" id="footer-id">
     <p>Developed by: Pedro Mattos</p>
-    <p>CCM - Web Version, <span>Build-name: Embryo Ⅰ</span></p>
+    <p>CCM - Web Version, <span>Build-name: Embryo ⅠⅠ</span></p>
   </div>
 </template>
 
