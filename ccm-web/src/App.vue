@@ -50,7 +50,7 @@ export default {
     transform: translateX(300px);
   }
   .main-page h1 {
-    font-size: 32px
+    font-size: 32px;
   }
   .dash-block {
     border-radius: 8px;
@@ -65,5 +65,22 @@ export default {
   }
   .dash-block p {
     margin-bottom: 0;
+  }
+  .dash-block a p {
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    float: left;
+    width: 50px;
+    transition-duration: .5s;
+  }
+  #sub-t-page {
+    font-size: 24px;
+  }
+  blockquote.tip {
+    border-left: solid #024873 5px;
+  }
+  .tip h2 p {
+    font-size: 14px;
   }
 </style>
