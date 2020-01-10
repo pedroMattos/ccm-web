@@ -3,6 +3,10 @@
     <sidebar v-if="uid != null"/>
     <div class="col m9 main-page" id="main-dashboard">
       <h1>CCM - Web Version <span>Embryo ⅠⅠ</span> <iconVer/></h1>
+      <blockquote class="tip">
+        <h2 class="grey-text lighten-2"
+        id="sub-t-page">Bem vindo(a)!</h2>
+      </blockquote>
       <div class="row">
         <div class="col m4 quadros"><all/></div>
         <div class="col m4 quadros"><maint/></div>
@@ -19,13 +23,13 @@
 <script>
 // import auth from './firebaseinit';
 // importa os quadros
-import all from './quadros/all';
-import crit from './quadros/critical';
-import dam from './quadros/damaged';
-import maint from './quadros/maintence';
-import unused from './quadros/unusable';
-import iconVer from './svg-components/embryo-version';
-import sidebar from './Sidebar';
+import all from '../quadros/all';
+import crit from '../quadros/critical';
+import dam from '../quadros/damaged';
+import maint from '../quadros/maintence';
+import unused from '../quadros/unusable';
+import iconVer from '../svg-components/embryo-version';
+import sidebar from '../Sidebar';
 
 export default {
   name: 'dashboard',

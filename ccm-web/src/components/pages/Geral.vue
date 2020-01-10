@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import back from './svg-components/back';
-import auth from './firebaseinit';
-import sidebar from './Sidebar';
+import back from '../svg-components/back';
+import auth from '../firebaseinit';
+import sidebar from '../Sidebar';
 
 export default {
   name: 'geral',

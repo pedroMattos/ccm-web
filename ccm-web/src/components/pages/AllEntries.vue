@@ -1,31 +1,32 @@
 <template>
   <div class="row">
     <sidebar v-if="uid != ''"/>
-    <div class="main-page col m9" id="main-my-entry">
+    <div class="main-page col m9" id="main-all-entry">
       <router-link :to="{ name: 'Home' }"><back/></router-link>
-      <h1>Minhas entradas</h1>
+      <h1>Todas entradas</h1>
       <blockquote class="tip">
         <h2 class="grey-text lighten-2"
-        id="sub-t-page">Aqui você pode ver e atualizar todas as suas entradas</h2>
+        id="sub-t-page">Veja todas as entradas
+        <br><p>Lembre-se que só pode editar suas entradas</p></h2>
       </blockquote>
       <div class="row">
-        <myentry/>
+        <allentries/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import back from './svg-components/back';
-import myentry from './quadros/myentry';
-import auth from './firebaseinit';
-import sidebar from './Sidebar';
+import auth from '../firebaseinit';
+import back from '../svg-components/back';
+import allentries from '../quadros/allentries';
+import sidebar from '../Sidebar';
 
 export default {
-  name: 'my-entry',
+  name: 'all-entry',
   components: {
     back,
-    myentry,
+    allentries,
     sidebar,
   },
   data() {
@@ -38,12 +39,3 @@ export default {
   },
 };
 </script>
-
-<style>
-  #sub-t-page {
-    font-size: 24px;
-  }
-  blockquote.tip {
-    border-left: solid #024873 5px;
-  }
-</style>

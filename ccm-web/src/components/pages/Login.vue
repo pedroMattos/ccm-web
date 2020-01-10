@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import formLogin from './forms/formLogin';
-import footerL from './footer';
+import formLogin from '../forms/formLogin';
+import footerL from '../footer';
 
 export default {
   name: 'Login',

@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import auth from './firebaseinit';
-import back from './svg-components/back';
-import newEntryForm from './forms/newEntryForm';
-import sidebar from './Sidebar';
+import auth from '../firebaseinit';
+import back from '../svg-components/back';
+import newEntryForm from '../forms/newEntryForm';
+import sidebar from '../Sidebar';
 
 export default {
   name: 'newEntry',
