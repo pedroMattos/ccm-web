@@ -41,14 +41,10 @@
 </template>
 
 <script>
-import qrcode from '../QR-code-generator';
 import bd from '../firebaseinit';
 
 export default {
   name: 'form-new-entry',
-  components: {
-    qrcode,
-  },
   data() {
     return {
       tombo: '',
