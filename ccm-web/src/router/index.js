@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Dashboard from '@/components/Dashboard';
-import NewEntry from '@/components/NewEntry';
-import MyEntry from '@/components/MyEntries';
-import AllEntries from '@/components/AllEntries';
-import Login from '@/components/Login';
-import Geral from '@/components/Geral';
+import Dashboard from '@/components/pages/Dashboard';
+import NewEntry from '@/components/pages/NewEntry';
+import MyEntry from '@/components/pages/MyEntries';
+import AllEntries from '@/components/pages/AllEntries';
+import Login from '@/components/pages/Login';
+import Geral from '@/components/pages/Geral';
+import filterEntry from '@/components/pages/Filterpage';
+import indexFilter from '@/components/pages/indexFilter';
 
 Vue.use(Router);
 
@@ -30,7 +32,19 @@ export default new Router({
     {
       path: '/all-entries',
       name: 'AllEntries',
-      component: AllEntries,
+      component: indexFilter,
+      children: [
+        {
+          path: '',
+          name: 'AllEntries',
+          component: AllEntries,
+        },
+        {
+          path: ':nome',
+          name: 'filter-entry',
+          component: filterEntry,
+        },
+      ],
     },
     {
       path: '/login-user',
