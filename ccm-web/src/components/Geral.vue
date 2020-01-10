@@ -15,7 +15,7 @@
 
 <script>
 import back from './svg-components/back';
-// import auth from './firebaseinit';
+import auth from './firebaseinit';
 import sidebar from './Sidebar';
 
 export default {
@@ -23,6 +23,18 @@ export default {
   components: {
     back,
     sidebar,
+  },
+  mounted() {
+    const docRef = auth.collection('Controller').where('Uid', '==', window.uid);
+    docRef.get().then((doc) => {
+      // eslint-disable-next-line no-shadow
+      doc.forEach((doc) => {
+        // eslint-disable-next-line eqeqeq
+        if (doc.data().Nivel == 'User') {
+          this.$router.push({ name: 'Home' });
+        }
+      });
+    });
   },
 };
 </script>
