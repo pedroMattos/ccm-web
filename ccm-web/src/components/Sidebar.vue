@@ -31,7 +31,7 @@ export default {
       permiss: '',
     };
   },
-  created() {
+  mounted() {
     const context = this;
     const docRef = auth.collection('Controller').where('Uid', '==', window.uid);
     docRef.get().then((doc) => {
