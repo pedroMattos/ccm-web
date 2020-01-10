@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       count: '',
-      name: 'inutilizado',
+      name: 'sem-dono',
     };
   },
   created() {
@@ -22,8 +22,11 @@ export default {
     const docRef = bd.collection('Máquinas');
     docRef.get().then((doc) => {
       let i = 0;
+      // eslint-disable-next-line no-shadow
       doc.forEach((doc) => {
+        // eslint-disable-next-line eqeqeq
         if (doc.data().Estado == context.name) {
+          // eslint-disable-next-line no-plusplus
           i++;
           context.count = i;
         }
@@ -34,7 +37,7 @@ export default {
 </script>
 
 <style>
-  #main-unu-pc, .maquina-parada {
+  #main-unu-pc, .sem-dono {
     background-color: rgb(80, 130, 173);
   }
 </style>
