@@ -5,6 +5,7 @@ import NewEntry from '@/components/NewEntry';
 import MyEntry from '@/components/MyEntries';
 import AllEntries from '@/components/AllEntries';
 import Login from '@/components/Login';
+import Geral from '@/components/Geral';
 
 Vue.use(Router);
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/login-user',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/gerenace',
+      name: 'Admin',
+      component: Geral,
     },
   ],
 });
