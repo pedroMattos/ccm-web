@@ -38,5 +38,7 @@ export default {
 </script>
 
 <style>
-
+  blockquote h2 p {
+    font-size: 24px;
+  }
 </style>
