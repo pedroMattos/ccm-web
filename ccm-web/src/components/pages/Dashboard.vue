@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <sidebar v-if="uid != null"/>
+    <sidebar/>
     <div class="col m9 main-page" id="main-dashboard">
       <h1>CCM - Web Version <span>Embryo ⅠⅠ</span> <iconVer/></h1>
       <blockquote class="tip">
@@ -42,11 +42,6 @@ export default {
     maint,
     unused,
     sidebar,
-  },
-  data() {
-    return {
-      uid: '',
-    };
   },
 };
 </script>

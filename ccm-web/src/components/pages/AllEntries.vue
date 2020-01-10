@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <sidebar v-if="uid != ''"/>
+    <sidebar/>
     <div class="main-page col m9" id="main-all-entry">
       <router-link :to="{ name: 'Home' }"><back/></router-link>
       <h1>Todas entradas</h1>
@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import auth from '../firebaseinit';
 import back from '../svg-components/back';
 import allentries from '../quadros/allentries';
 import sidebar from '../Sidebar';
@@ -28,14 +27,6 @@ export default {
     back,
     allentries,
     sidebar,
-  },
-  data() {
-    return {
-      uid: '',
-    };
-  },
-  mounted() {
-    this.uid = auth.app.auth().currentUser.uid;
   },
 };
 </script>

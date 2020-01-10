@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <sidebar v-if="uid != ''"/>
+    <sidebar/>
     <div class="main-page col m9" id="main-my-entry">
       <router-link :to="{ name: 'Home' }"><back/></router-link>
       <h1>Minhas entradas</h1>
@@ -18,7 +18,6 @@
 <script>
 import back from '../svg-components/back';
 import myentry from '../quadros/myentry';
-import auth from '../firebaseinit';
 import sidebar from '../Sidebar';
 
 export default {
@@ -27,14 +26,6 @@ export default {
     back,
     myentry,
     sidebar,
-  },
-  data() {
-    return {
-      uid: '',
-    };
-  },
-  mounted() {
-    this.uid = auth.app.auth().currentUser.uid;
   },
 };
 </script>
