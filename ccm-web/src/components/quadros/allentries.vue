@@ -3,13 +3,22 @@
       <div v-for="item in block" :key="item.tombo"
       :class="[item.situation, 'dash-block', 'col', 'm4', 'entry']">
         <h2>{{ item.modelo }}</h2>
-        <p>Tombo: <span>{{ item.tombo }}</span></p>
-        <p>Situação: <span>{{ item.situation }}</span></p>
-        <p>Problema: {{ item.issue }}</p>
-        <p>Detalhes: {{ item.details }}</p>
-        <p>Data de entrada: {{ item.date }}</p>
-        <p>Responsavel: {{ item.name }}</p>
-        <p>Dono: {{ item.owner }}</p>
+        <div class="row">
+          <div class="col m9">
+            <p>Tombo: <span>{{ item.tombo }}</span></p>
+            <p>Estado: <span>{{ item.situation }}</span></p>
+            <p>Problema: {{ item.issue }}</p>
+            <p>Situação: {{ item.details }}</p>
+            <p>Data de entrada: {{ item.date }}</p>
+            <p>Responsavel: {{ item.name }}</p>
+            <p>Dono: {{ item.owner }}</p>
+          </div>
+          <div class="col m3">
+            <a target="_blank" :href="item.url">
+              <img :src="item.url" width="50px" alt="qrcode">
+            </a>
+          </div>
+        </div>
         <p class="center">Atualizar</p>
     </div>
     </div>
@@ -40,6 +49,7 @@ export default {
           situation: docs.data().Estado,
           owner: docs.data().Dono,
           issue: docs.data().Problema,
+          url: docs.data().QrCode,
         };
         context.block.push(data);
       });
