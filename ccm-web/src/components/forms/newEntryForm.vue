@@ -6,7 +6,19 @@
           <input placeholder="Modelo" id="modelo" v-model="modelo" name="modelo" type="text">
           <textarea placeholder="Descreva o problema" id="issue" name="issue" v-model="issue"
           class="materialize-textarea"></textarea>
-          <input placeholder="Detalhes" id="detalhes" v-model="details" name="detalhes" type="text">
+          <div class="input-field col s12">
+            <select v-model="details">
+              <option value="no selected" disabled>Escolha</option>
+              <option value="Aguardando Peça">Aguardando Peça</option>
+              <option value="Aguardando Assistencia">Aguardando Assistencia</option>
+              <option value="Sala de Manutenção">Sala de Manutenção</option>
+              <option value="Sem Peça para reposição">Sem Peça para reposição</option>
+              <option value="Movimentação de setor/maquina">Movimentação de setor/maquina</option>
+              <option value="Troca de Maquina">Troca de Maquina</option>
+              <option value="Retirada de maquina">Retirada de maquina</option>
+            </select>
+            <label>Situação</label>
+          </div>
           <input placeholder="Dono" id="dono" v-model="owner" name="dono" type="text">
         <div class="input-field col s12">
           <select v-model="situation">
@@ -17,7 +29,7 @@
             <option value="sem-dono">Sem dono</option>
             <option value="solucionado">Solucionado</option>
           </select>
-          <label>Situação</label>
+          <label>Estado</label>
         </div>
           <div class="center">
             <button type="button" @click.prevent="qrCodeGenerator"
@@ -104,6 +116,7 @@ export default {
         Responsável: bd.app.auth().currentUser.email,
         Tombo: context.tombo,
         Uid: bd.app.auth().currentUser.uid,
+        QrCode: context.url,
       };
       ref.doc(id).set(payload, (error) => {
         if (error) {
