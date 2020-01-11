@@ -9,10 +9,11 @@
       </blockquote>
       <div class="row">
         <div class="col m4 quadros"><all/></div>
+        <div class="col m4 quadros"><solut/></div>
         <div class="col m4 quadros"><maint/></div>
-        <div class="col m4 quadros"><crit/></div>
       </div>
       <div class="row">
+        <div class="col m4 quadros"><crit/></div>
         <div class="col m4 quadros"><dam/></div>
         <div class="col m4 quadros"><unused/></div>
       </div>
@@ -28,6 +29,7 @@ import crit from '../quadros/critical';
 import dam from '../quadros/damaged';
 import maint from '../quadros/maintence';
 import unused from '../quadros/unusable';
+import solut from '../quadros/solutioned';
 import iconVer from '../svg-components/embryo-version';
 import sidebar from '../Sidebar';
 
@@ -42,6 +44,7 @@ export default {
     maint,
     unused,
     sidebar,
+    solut,
   },
 };
 </script>
