@@ -17,10 +17,55 @@
             <a target="_blank" :href="item.url">
               <img :src="item.url" width="50px" alt="qrcode">
             </a>
+            <p class="edit" v-if="item.Editado">Editado:<br>{{ item.Editado }}</p>
           </div>
         </div>
-        <p class="center">Atualizar</p>
-    </div>
+        <p @click.prevent="openEdit(item.tombo, item.modelo, item.situation, item.details)"
+        data-target="modal1" class="center modal-trigger">Atualizar</p>
+      </div>
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Editar Entrada para {{ modelo }}</h4>
+          <blockquote>
+            <p>Tombo: {{ tombo }}</p>
+            <p>Mudar Estado: {{ edit.Estado }}</p>
+            <p>Mudar Situação: {{ edit.Detalhes }}</p>
+          </blockquote>
+          <form action="" id="edit-form">
+            <div class="input-field col s12">
+              <select v-model="edit.Detalhes">
+                <option value="no selected" disabled>Escolha</option>
+                <option value="Aguardando Peça">Aguardando Peça</option>
+                <option value="Aguardando Assistencia">Aguardando Assistencia</option>
+                <option value="Sem Peça para reposição">Sem Peça para reposição</option>
+                <option value="Troca de Maquina">Troca de Maquina</option>
+                <option value="Retirada de maquina">Retirada de maquina</option>
+                <option value="Solucionado">Solucionado</option>
+              </select>
+              <label>Situação</label>
+            </div>
+            <div class="input-field col s12">
+              <select v-model="edit.Estado">
+                <option value="no selected" disabled>Escolha</option>
+                <option value="em-manutencao">Em manutenção</option>
+                <option value="estado-critico">Estado crítico</option>
+                <option value="inutilizado">Inutilizado</option>
+                <option value="sem-dono">Sem dono</option>
+                <option value="solucionada">Solucionado</option>
+              </select>
+              <label>Estado</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p v-if="nivel == 'Admin'" @click.prevent="removeItem()"
+          class="modal-close waves-effect waves-green btn-flat white red-text">Excluir</p>
+          <p @click.prevent="updateItem()"
+          class="modal-close waves-effect waves-green btn-flat green white-text">Salvar</p>
+          <a href="#!"
+          class="modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        </div>
+      </div>
     </div>
 </template>
 
@@ -32,16 +77,31 @@ export default {
   data() {
     return {
       block: [],
+      tombo: '',
+      modelo: null,
+      nivel: null,
+      edit: {
+        Estado: null,
+        Detalhes: null,
+        Editado: null,
+        Edit_por: null,
+      },
+      activeItem: null,
     };
   },
   created() {
     const context = this;
+    // Init modal
+    // eslint-disable-next-line no-undef
+    $(document).ready(() => { $('.modal').modal(); });
+    // eslint-disable-next-line no-undef
+    $(document).ready(() => { $('select').formSelect(); });
     const docRef = bd.collection('Máquinas').where('Uid', '==', window.uid);
     docRef.get().then((doc) => {
       // eslint-disable-next-line no-shadow
       doc.forEach((doc) => {
         const data = {
-          uid: doc.Uid,
+          uid: doc.data().Uid,
           tombo: doc.data().Tombo,
           details: doc.data().Detalhes,
           date: doc.data().Data,
@@ -51,10 +111,59 @@ export default {
           owner: doc.data().Dono,
           issue: doc.data().Problema,
           url: doc.data().QrCode,
+          resp: doc.data().Edit_por,
+          Editado: doc.data().Editado,
         };
+        context.tombo = doc.data().Tombo;
         context.block.push(data);
       });
     });
+    // permiss query
+    const ref = bd.collection('Controller');
+    ref.get().then((doc) => {
+      // eslint-disable-next-line no-shadow
+      doc.forEach((doc) => {
+        // eslint-disable-next-line eqeqeq
+        if (doc.id == window.uid) {
+          context.nivel = doc.data().Nivel;
+        }
+      });
+    });
+  },
+  methods: {
+    updateItem() {
+      bd.collection('Máquinas').doc(this.activeItem).update(this.edit,
+      ).then(() => {
+        // eslint-disable-next-line no-alert
+        alert('Atualizado com sucesso!');
+      })
+        .catch((error) => {
+          // eslint-disable-next-line no-alert
+          alert(error);
+        });
+    },
+    openEdit(tombo, modelo, estado, situacao) {
+      const now = new Date();
+      this.activeItem = tombo;
+      this.modelo = modelo;
+      this.edit.Estado = estado;
+      this.edit.Detalhes = situacao;
+      const month = now.getMonth() + 1;
+      // eslint-disable-next-line prefer-template
+      const date = now.getDate() + '/' + month + '/' + now.getFullYear();
+      this.edit.Editado = date;
+      this.edit.Edit_por = bd.app.auth().currentUser.email;
+    },
+    removeItem() {
+      bd.collection('Máquinas').doc(this.activeItem).delete().then(() => {
+        // eslint-disable-next-line no-alert
+        alert('Entrada removida do histórico');
+      })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.error('Error removing document: ', error);
+        });
+    },
   },
 };
 </script>
