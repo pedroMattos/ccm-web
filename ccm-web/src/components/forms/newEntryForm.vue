@@ -20,17 +20,17 @@
             <label>Situação</label>
           </div>
           <input placeholder="Dono" id="dono" v-model="owner" name="dono" type="text">
-        <div class="input-field col s12">
-          <select v-model="situation">
-            <option value="no selected" disabled>Escolha</option>
-            <option value="em-manutencao">Em manutenção</option>
-            <option value="estado-critico">Estado crítico</option>
-            <option value="inutilizado">Inutilizado</option>
-            <option value="sem-dono">Sem dono</option>
-            <option value="solucionado">Solucionado</option>
-          </select>
-          <label>Estado</label>
-        </div>
+          <div class="input-field col s12">
+            <select v-model="situation">
+              <option value="no selected" disabled>Escolha</option>
+              <option value="em-manutencao">Em manutenção</option>
+              <option value="estado-critico">Estado crítico</option>
+              <option value="inutilizado">Inutilizado</option>
+              <option value="sem-dono">Sem dono</option>
+              <option value="solucionada">Solucionado</option>
+            </select>
+            <label>Estado</label>
+          </div>
           <div class="center">
             <button type="button" @click.prevent="qrCodeGenerator"
             class="btn waves-effect waves-light">Gerar Código</button>
