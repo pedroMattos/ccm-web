@@ -9,7 +9,7 @@
         id="sub-t-page">
         Aqui você pode adicionar usuários, e outras coisas que só adms podem fazer</h2>
       </blockquote>
-      <div @click.prevent="expand()" ref="register" class="row compress">
+      <div class="row">
         <p id="title-expand-newuser">Adicionar Novo usuário</p>
         <registerUser/>
       </div>
