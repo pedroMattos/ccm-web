@@ -83,4 +83,10 @@ export default {
   .tip h2 p {
     font-size: 14px;
   }
+  .modal-overlay {
+    background-color: transparent;
+  }
+  .modal#modal1 {
+    height: 410px;
+  }
 </style>
