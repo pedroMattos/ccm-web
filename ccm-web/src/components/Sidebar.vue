@@ -1,5 +1,5 @@
 <template>
-  <div class="col md3" id="main-sidebar">
+  <div class="col m3" ref="sidebar" id="main-sidebar">
     <div id="header-sidebar">
       <p>{{ name }}</p>
       <p>{{ email }}</p>
@@ -107,4 +107,10 @@ export default {
   #logout {
     color: #D9042B !important;
   }
+@media only screen and (max-width: 600px) {
+  #main-sidebar {
+    position: absolute;
+    transform: translateY(-100%);
+  }
+}
 </style>
