@@ -133,4 +133,7 @@ export default {
       top: 0;
     }
   }
+  .modal-trigger {
+    cursor: pointer;
+  }
 </style>
