@@ -1,21 +1,19 @@
 <template>
   <div class="row">
     <sidebar/>
-    <div class="col m9 main-page" id="main-dashboard">
+    <div class="col m9 s12 main-page" id="main-dashboard">
       <h1>CCM - Web Version <span>Embryo ⅠⅠ</span> <iconVer/></h1>
       <blockquote class="tip">
         <h2 class="grey-text lighten-2"
         id="sub-t-page">Bem vindo(a)!</h2>
       </blockquote>
-      <div class="row">
-        <div class="col m4 quadros"><all/></div>
-        <div class="col m4 quadros"><solut/></div>
-        <div class="col m4 quadros"><maint/></div>
-      </div>
-      <div class="row">
-        <div class="col m4 quadros"><crit/></div>
-        <div class="col m4 quadros"><dam/></div>
-        <div class="col m4 quadros"><unused/></div>
+      <div id="quadros-row" class="row">
+        <div class="col m4 s6 quadros"><all/></div>
+        <div class="col m4 s6 quadros"><solut/></div>
+        <div class="col m4 s6 quadros"><maint/></div>
+        <div class="col m4 s6 quadros"><crit/></div>
+        <div class="col m4 s6 quadros"><dam/></div>
+        <div class="col m4 s6 quadros"><unused/></div>
       </div>
     </div>
   </div>
