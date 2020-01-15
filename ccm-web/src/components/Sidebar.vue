@@ -107,10 +107,16 @@ export default {
   #logout {
     color: #D9042B !important;
   }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 799px) {
   #main-sidebar {
-    position: absolute;
+    position: fixed;
+    top: 0;
     transform: translateY(-100%);
+    transition-duration:.5s;
+    z-index: 99;
+  }
+  #header-sidebar {
+    padding: 40px 20px 20px 20px;
   }
 }
 </style>
