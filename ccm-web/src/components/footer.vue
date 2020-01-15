@@ -1,7 +1,7 @@
 <template>
   <div class="center" id="footer-id">
     <p>Developed by: Pedro Mattos</p>
-    <p>CCM - Web Version, <span>Build-name: Embryo ⅠⅠ</span></p>
+    <p>CCM - Web Version, <span>Build-name: Evolved</span></p>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     font-size: 12px;
   }
   #footer-id span {
-    background-color: green;
+    background-color: red;
     padding: 1px;
     border-radius: 5px;
   }
