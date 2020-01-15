@@ -22,13 +22,13 @@
         </div>
         <p v-if="nivel == 'Admin'"
         @click.prevent="openEdit(item.tombo, item.modelo, item.situation, item.details)"
-        data-target="modal1" class="center modal-trigger">Atualizar</p>
+        data-target="modal" class="center modal-trigger">Atualizar</p>
       </div>
-      <div id="modal1" class="modal">
+      <div id="modal" class="modal">
         <div class="modal-content">
           <h4>Editar Entrada para {{ modelo }}</h4>
           <blockquote>
-            <p>Tombo: {{ tombo }}</p>
+            <p>Tombo: {{ edit.tombo }}</p>
             <p>Mudar Estado: {{ edit.Estado }}</p>
             <p>Mudar Situação: {{ edit.Detalhes }}</p>
           </blockquote>
@@ -79,9 +79,10 @@ export default {
     return {
       block: [],
       nivel: null,
-      tombo: '',
+      tombo: null,
       modelo: null,
       edit: {
+        tombo: null,
         Estado: null,
         Detalhes: null,
         Editado: null,
@@ -114,7 +115,7 @@ export default {
           resp: docs.data().Edit_por,
           Editado: docs.data().Editado,
         };
-        context.tombo = docs.data().Tombo;
+        // context.tombo = docs.data().Tombo;
         context.block.push(data);
       });
     });
@@ -148,22 +149,23 @@ export default {
       this.modelo = modelo;
       this.edit.Estado = estado;
       this.edit.Detalhes = situacao;
+      this.edit.tombo = tombo;
       const month = now.getMonth() + 1;
       // eslint-disable-next-line prefer-template
       const date = now.getDate() + '/' + month + '/' + now.getFullYear();
       this.edit.Editado = date;
       this.edit.Edit_por = bd.app.auth().currentUser.email;
     },
-  },
-  removeItem() {
-    bd.collection('Máquinas').doc(this.activeItem).delete().then(() => {
-      // eslint-disable-next-line no-alert
-      alert('Entrada removida do histórico');
-    })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error('Error removing document: ', error);
-      });
+    removeItem() {
+      bd.collection('Máquinas').doc(this.activeItem).delete().then(() => {
+        // eslint-disable-next-line no-alert
+        alert('Entrada removida do histórico');
+      })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.error('Error removing document: ', error);
+        });
+    },
   },
 };
 </script>
