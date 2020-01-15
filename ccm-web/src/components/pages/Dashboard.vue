@@ -60,10 +60,14 @@ export default {
   }
   .quadros {
     position: relative;
+    margin-bottom: 15px;
   }
   @media only screen and (max-width: 799px) {
     #main-dashboard h1 {
       font-size: 2rem;
+    }
+    .quadros {
+      margin-bottom: 0;
     }
   }
 </style>
