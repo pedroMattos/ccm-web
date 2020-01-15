@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <sidebar/>
-    <div class="main-page col m9" id="main-new-entry">
+    <div class="main-page col m9 s12" id="main-new-entry">
       <router-link :to="{ name: 'Home' }"><back/></router-link>
       <h1>Nova entrada</h1>
         <blockquote class="tip">

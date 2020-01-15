@@ -2,7 +2,7 @@
   <div class="row">
     <sidebar/>
     <div class="col m9 s12 main-page" id="main-dashboard">
-      <h1>CCM - Web Version <span>Embryo ⅠⅠ</span> <iconVer/></h1>
+      <h1>CCM - Web Version <span>Evolved</span> <iconVer/></h1>
       <blockquote class="tip">
         <h2 class="grey-text lighten-2"
         id="sub-t-page">Bem vindo(a)!</h2>
@@ -52,7 +52,7 @@ export default {
     font-size: 32px;
   }
     #main-dashboard h1 span{
-      background-color: green;
+      background-color: red;
       padding: 2px;
       border-radius: 5px;
       color: white;
@@ -60,5 +60,10 @@ export default {
   }
   .quadros {
     position: relative;
+  }
+  @media only screen and (max-width: 799px) {
+    #main-dashboard h1 {
+      font-size: 2rem;
+    }
   }
 </style>

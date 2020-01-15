@@ -32,7 +32,9 @@
           </select>
           <label>Permissões</label>
         </div>
-        <input type="submit" value="Criar usuário" class="btn col m12">
+        <div class="center">
+          <input type="submit" value="Criar usuário" class="btn col s12 m12">
+        </div>
       </div>
     </form>
     <blockquote v-if="nivel == 'Admin'" class="alert col m6 grey-text">

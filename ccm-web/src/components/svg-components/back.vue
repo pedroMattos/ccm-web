@@ -70,4 +70,9 @@ export default {
   fill: white;
   transition-duration: .5s;
 }
+@media only screen and (max-width: 600px) {
+  #back-svg {
+    margin-top: 60px;
+  }
+}
 </style>

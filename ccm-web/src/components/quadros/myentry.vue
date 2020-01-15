@@ -1,7 +1,7 @@
 <template>
     <div class="blocks">
       <div v-for="item in block" :key="item.tombo"
-      :class="[item.situation, 'dash-block', 'col', 'm4', 'entry']"  >
+      :class="[item.situation, 'dash-block', 'col', 'm4', 's12', 'entry']"  >
         <h2>{{ item.modelo }}</h2>
         <div class="row">
           <div class="col m9">

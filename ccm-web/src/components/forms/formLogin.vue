@@ -11,7 +11,7 @@
         <input v-model="password" id="password" type="password" class="validate">
         <label for="password">Senha</label>
       </div>
-      <input type="submit" value="Entrar" class="btn col m12">
+      <input type="submit" value="Entrar" class="btn col m12 s12">
       <span class="center" v-if="err != ''">{{ err }}</span>
       <p v-if="err != ''">Entre em contato com um administrador do sistema.</p>
     </div>
@@ -85,5 +85,10 @@ export default {
   }
   input[type='submit']:hover {
     background-color: #024873;
+  }
+  @media only screen and (max-width: 799px) {
+    #main-form-login {
+      transform: translateY(150px);
+    }
   }
 </style>
