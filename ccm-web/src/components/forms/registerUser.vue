@@ -14,26 +14,40 @@
         </div>
         <div class="input-field col s12">
           <input v-model="name" id="nome" type="text" class="validate">
-          <label for="password">Nome</label>
+          <label for="nome">Nome</label>
         </div>
         <div class="input-field col s12">
-          <select v-model="nivel">
-            <option value="no selected" disabled>Escolha</option>
-            <option value="Admin">Administrador</option>
-            <option value="User">Usuário Padrão</option>
-          </select>
-          <label>Nivel</label>
+          <p>Nivel</p>
+          <p>
+            <label>
+              <input name="adm" value="Admin" v-model="nivel" type="radio" />
+              <span>Administrador</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="user" value="User" v-model="nivel" type="radio" />
+              <span>Usuário Padrão</span>
+            </label>
+          </p>
         </div>
         <div class="input-field col s12">
-          <select v-model="nivel">
-            <option value="no selected" disabled>Escolha</option>
-            <option value="Write/Create">Ler/Criar</option>
-            <option value="Master">Todas</option>
-          </select>
-          <label>Permissões</label>
+          <p>Permissões</p>
+          <p>
+            <label>
+              <input name="wrt/rd" value="Write/Read" v-model="permiss" type="radio" />
+              <span>Ler/Criar</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="mstr" value="Master" v-model="permiss" type="radio" />
+              <span>Todas</span>
+            </label>
+          </p>
         </div>
         <div class="center">
-          <input type="submit" value="Criar usuário" class="btn col s12 m12">
+          <input type="submit" value="Criar usuário" class="btn col s12">
         </div>
       </div>
     </form>
