@@ -2,7 +2,7 @@
     <div :class="[name, 'dash-block']">
       <h2>Inutilizados</h2>
       <p>Contagem: <span>{{ count }}</span></p>
-      <router-link
+      <router-link v-if="count"
       :to="{ name: 'filter-entry', params: { nome: name } }"><p class="center">Ver</p></router-link>
     </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   name: 'damaged',
   data() {
     return {
-      count: '',
+      count: null,
       name: 'inutilizado',
     };
   },

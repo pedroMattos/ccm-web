@@ -2,7 +2,7 @@
     <div class="dash-block" id="main-all-pc">
       <h2>Todos (já cadastrados)</h2>
       <p>Contagem: <span>{{ count }}</span></p>
-      <router-link
+      <router-link v-if="count"
       :to="{ name: 'AllEntries' }"><p class="center">Ver</p></router-link>
     </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   name: 'all',
   data() {
     return {
-      count: '',
+      count: null,
       name: 'all',
     };
   },
@@ -22,7 +22,12 @@ export default {
     const context = this;
     const docRef = bd.collection('Máquinas');
     docRef.get().then((doc) => {
-      context.count = doc.docs.length;
+      // eslint-disable-next-line eqeqeq
+      if (doc.docs.length == 0) {
+        context.count = null;
+      } else {
+        context.count = doc.docs.length;
+      }
     });
   },
 };
