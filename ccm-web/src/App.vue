@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <opnmenu/>
+    <opnmenu v-if="uid"/>
   </div>
 </template>
 
@@ -18,13 +18,15 @@ export default {
   },
   data() {
     return {
+      uid: null,
     };
   },
   mounted() {
-    // const context = this;
+    const context = this;
     auth.app.auth().onAuthStateChanged((user) => {
       // se user.uid não estiver vazio, loga, senao nulo
       window.uid = user ? user.uid : null;
+      context.uid = window.uid;
       if (!window.uid) {
         if (window.location.pathname.indexOf('/login-user') < 0) {
           this.$router.push({ name: 'Login' });
@@ -92,7 +94,7 @@ export default {
   .modal#modal1 {
     height: 410px;
   }
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 799px) {
     .main-page {
       transform: translateX(0);
       width: 100%;
@@ -110,27 +112,21 @@ export default {
     .quadros.col {
       padding: 0;
     }
-    #01 {
-      width: 20px;
-      background-color: white;
-      height: 1px;
-    }
-    #02 {
-      width: 20px;
-      background-color: white;
-      height: 1px;
-    }
-    #03 {
-      width: 20px;
-      background-color: white;
-      height: 1px;
-    }
     #open-menu {
       background-color: #024873;
-      position: absolute;
+      position: fixed;
       height: 45px;
       width: 45px;
       top: 0;
+      padding: 8px;
+      border-radius: 0 0 5px 0;
+    }
+    #main-dashboard h1 {
+      margin: 50px 0 20px 0;
+    }
+    .modal#modal1 {
+      height: 441px;
+      margin: 77px auto;
     }
   }
   .modal-trigger {
