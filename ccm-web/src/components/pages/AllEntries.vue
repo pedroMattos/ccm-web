@@ -10,6 +10,7 @@
         <br><p>Lembre-se que só pode editar suas entradas</p></h2>
       </blockquote>
       <div class="row">
+        <filtro/>
         <allentries/>
       </div>
     </div>
@@ -20,6 +21,7 @@
 import back from '../svg-components/back';
 import allentries from '../quadros/allentries';
 import sidebar from '../Sidebar';
+import filtro from '../filtro-ver-todos';
 
 export default {
   name: 'all-entry',
@@ -27,6 +29,7 @@ export default {
     back,
     allentries,
     sidebar,
+    filtro,
   },
 };
 </script>
