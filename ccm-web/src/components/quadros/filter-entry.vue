@@ -57,10 +57,17 @@
             </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <p v-if="nivel == 'Admin'" @click.prevent="removeItem()"
-          class="modal-close waves-effect waves-green btn-flat white red-text">Excluir</p>
-          <p @click.prevent="updateItem()"
+        <div v-if="show == true" class="input-field col s8">
+          <p class="red-text"><strong>Digite seu email para continuar**</strong></p>
+          <input placeholder="email"
+          class="left" id="email" v-model="email" name="pss" type="email">
+          <p @click.prevent="removeItem()"
+          class="blue white-text waves-effect waves-green btn-flat">Ok!</p>
+        </div>
+        <div class="modal-footer col s12">
+          <p v-if="nivel == 'Admin'" @click.prevent="toRemove()"
+          class="waves-effect waves-green btn-flat white red-text">Excluir</p>
+          <p v-if="nivel == 'Admin'" @click.prevent="updateItem()"
           class="modal-close waves-effect waves-green btn-flat green white-text">Salvar</p>
           <a href="#!"
           class="modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
@@ -80,6 +87,8 @@ export default {
       tombo: '',
       modelo: null,
       nivel: null,
+      email: null,
+      show: false,
       edit: {
         Estado: null,
         Detalhes: null,
@@ -152,14 +161,25 @@ export default {
       this.edit.Edit_por = bd.app.auth().currentUser.email;
     },
     removeItem() {
-      bd.collection('Máquinas').doc(this.activeItem).delete().then(() => {
+      // eslint-disable-next-line eqeqeq
+      if (bd.app.auth().currentUser.email == this.email) {
+        bd.collection('Máquinas').doc(this.activeItem).delete().then(() => {
+          document.getElementById('fechar').click();
+          // eslint-disable-next-line no-alert
+          alert('Entrada removida do histórico');
+        })
+          .catch((error) => {
+            // eslint-disable-next-line no-console
+            console.error('Error removing document: ', error);
+          });
+      } else {
+        document.getElementById('fechar').click();
         // eslint-disable-next-line no-alert
-        alert('Entrada removida do histórico');
-      })
-        .catch((error) => {
-          // eslint-disable-next-line no-console
-          console.error('Error removing document: ', error);
-        });
+        alert('E-mail incorreto!');
+      }
+    },
+    toRemove() {
+      this.show = true;
     },
   },
 };
