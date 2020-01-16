@@ -82,10 +82,14 @@ export default {
     select();
   },
   watch: {
-    situation: (val) => {
-      if (val) {
-        this.disabled = null;
+    situation(val) {
+      const context = this;
+      function removeDisabled() {
+        if (val) {
+          context.disabled = null;
+        }
       }
+      removeDisabled();
     },
   },
   methods: {
