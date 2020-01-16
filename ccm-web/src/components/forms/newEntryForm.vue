@@ -33,19 +33,19 @@
           </div>
           <div class="center">
             <button type="button" @click.prevent="qrCodeGenerator"
-            class="btn waves-effect waves-light">Gerar Código</button>
+            :class="[disabled, 'btn', 'waves-effect', 'waves-light']">Gerar Código</button>
           </div>
         </div>
         <div class="center col m6">
-          <div v-if="url != ''" class="col s12 center">
+          <div v-if="url" class="col s12 center">
             <blockquote>
               <p>Este é o código referente a essa entrada</p>
               <p>Realize a impressão do mesmo e coloque-o na máquina a que se refere</p>
               <p>Vai facilitar a sua vida, confie em mim! ;)</p>
             </blockquote>
-            <img v-if="url != ''" :src="url" alt="teste">
+            <img v-if="url" :src="url" alt="teste">
           </div>
-          <input v-if="url != ''" type="submit"
+          <input v-if="url" type="submit"
           value="Criar Entrada" class="btn waves-effect waves-light">
         </div>
       </div>
@@ -59,15 +59,16 @@ export default {
   name: 'form-new-entry',
   data() {
     return {
-      tombo: '',
-      situation: '',
-      modelo: '',
-      issue: '',
-      date: '',
-      details: '',
-      owner: '',
-      url: '',
-      error: '',
+      tombo: null,
+      situation: null,
+      modelo: null,
+      issue: null,
+      date: null,
+      details: null,
+      owner: null,
+      url: null,
+      error: null,
+      disabled: 'disabled',
     };
   },
   created() {
@@ -79,6 +80,13 @@ export default {
       $(document).ready(() => { $('select').formSelect(); });
     }
     select();
+  },
+  watch: {
+    situation: (val) => {
+      if (val) {
+        this.disabled = null;
+      }
+    },
   },
   methods: {
     qrCodeGenerator() {
