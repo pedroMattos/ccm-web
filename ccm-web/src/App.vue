@@ -42,9 +42,6 @@ export default {
   li {
     list-style: none;
   }
-  a {
-    color: black;
-  }
   .row#app {
     margin: 0;
     padding: 0;
