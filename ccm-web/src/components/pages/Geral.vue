@@ -72,6 +72,19 @@ export default {
 </script>
 
 <style>
+  #title-expand-newuser {
+    background-color: #024873;
+    color: white;
+    width: 100%;
+    max-width: 200px;
+    padding: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .closed {
+    display: none;
+  }
 @media only screen and (max-width: 799px) {
   #title-expand-newuser {
     background-color: #024873;
