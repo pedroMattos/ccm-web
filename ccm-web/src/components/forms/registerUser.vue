@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <form method="post" @submit.prevent="register()" class="col m6" id="main-form-register">
+    <form method="post" @submit.prevent="register()" class="col m6 closed" id="main-form-register">
       <div class="row">
         <div class="input-field col s12">
           <input v-model="email" id="email" type="email" class="validate">
@@ -99,13 +99,17 @@ export default {
           Nivel: this.nivel,
           Permiss: this.permiss,
         };
-        ref.doc(id).set(payload, (error) => {
-          if (error) {
-            this.error = error;
-          } else {
+        ref.doc(id).set(payload).then(() => {
+          // eslint-disable-next-line no-alert
+          alert('Usuário criado! Por razões de segurança você será deslogado em alguns segundos.');
+          setTimeout(() => {
+            auth.app.auth().signOut();
             this.$router.push({ name: 'Login' });
             location.reload();
-          }
+          }, 5000);
+        }).catch((error) => {
+          // eslint-disable-next-line no-alert
+          alert(`Houve um erro na criação do usuário: ${error}`);
         });
       });
     },
@@ -116,6 +120,7 @@ export default {
 <style>
   #main-form-register {
     padding: 20px;
+    margin-left: 25px;
   }
   .alert h3 {
     font-size: 24px;
