@@ -18,7 +18,7 @@ export default {
         { name: 'Estado crítico', class: 'estado-critico' },
         { name: 'Inutilizado', class: 'inutilizado' },
         { name: 'Sem dono', class: 'sem-dono' },
-        { name: 'Em manutenção', class: 'em-manutencao' },
+        { name: 'Solucionado', class: 'solucionada' },
       ],
     };
   },
