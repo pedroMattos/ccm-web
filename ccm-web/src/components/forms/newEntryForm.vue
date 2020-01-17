@@ -130,12 +130,13 @@ export default {
         Uid: bd.app.auth().currentUser.uid,
         QrCode: context.url,
       };
-      ref.doc(id).set(payload, (error) => {
-        if (error) {
-          context.error = error;
-        } else {
-          location.reload();
-        }
+      ref.doc(id).set(payload).then(() => {
+        // eslint-disable-next-line no-alert
+        alert('Entrada criada!');
+        context.$router.push({ name: 'Home' });
+      }).catch((error) => {
+        // eslint-disable-next-line no-alert
+        alert('Houve um erro ao processar o envio: ' + error);
       });
     },
   },
