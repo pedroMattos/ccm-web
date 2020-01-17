@@ -1,6 +1,6 @@
 <template>
     <div class="dash-block" id="main-unu-pc">
-      <h2>Máquinas paradas (sem dono)</h2>
+      <h2>Máquinas paradas (livres)</h2>
       <p>Contagem: <span>{{ count }}</span></p>
       <router-link v-if="count"
       :to="{ name: 'filter-entry', params: { nome: name } }"><p class="center">Ver</p></router-link>
