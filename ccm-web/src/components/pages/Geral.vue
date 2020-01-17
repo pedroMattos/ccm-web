@@ -9,8 +9,11 @@
         id="sub-t-page">
         Aqui você pode adicionar usuários, e outras coisas que só adms podem fazer</h2>
       </blockquote>
-      <div class="row">
-        <p id="title-expand-newuser">Adicionar Novo usuário</p>
+      <div class="row container">
+        <p @click.prevent="open()" v-if="hide"
+        id="title-expand-newuser">Adicionar Novo usuário +</p>
+        <p @click.prevent="close()" v-if="show"
+        id="title-expand-newuser">Adicionar Novo usuário -</p>
         <registerUser/>
       </div>
     </div>
@@ -30,6 +33,12 @@ export default {
     sidebar,
     registerUser,
   },
+  data() {
+    return {
+      show: false,
+      hide: true,
+    };
+  },
   mounted() {
     const docRef = auth.collection('Controller');
     docRef.get().then((doc) => {
@@ -45,5 +54,37 @@ export default {
       });
     });
   },
+  methods: {
+    open() {
+      this.show = true;
+      this.hide = false;
+      const form = document.getElementById('main-form-register');
+      form.classList.remove('closed');
+    },
+    close() {
+      this.show = false;
+      this.hide = true;
+      const form = document.getElementById('main-form-register');
+      form.classList.add('closed');
+    },
+  },
 };
 </script>
+
+<style>
+@media only screen and (max-width: 799px) {
+  #title-expand-newuser {
+    background-color: #024873;
+    color: white;
+    width: 100%;
+    max-width: 170px;
+    padding: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .closed {
+    display: none;
+  }
+}
+</style>
