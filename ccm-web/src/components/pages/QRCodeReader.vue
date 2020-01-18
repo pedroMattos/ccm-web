@@ -9,7 +9,7 @@
       </blockquote>
       <qrcode-stream @decode="onDecode" @init="onInit"></qrcode-stream>
       <!-- <qrcode-drop-zone></qrcode-drop-zone> -->
-      <qrcode-capture></qrcode-capture>
+      <!-- <qrcode-capture></qrcode-capture> -->
       <p>{{ content }}</p>
     </div>
   </div>
