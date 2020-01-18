@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "firebase": "^7.6.1",
+    "instascan": "^1.0.0",
     "vue": "^2.5.2",
+    "vue-qrcode-reader": "^2.1.1",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
