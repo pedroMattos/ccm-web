@@ -2,7 +2,7 @@
   <div class="row">
     <sidebar/>
     <div class="col m9 s12 main-page" id="main-dashboard">
-      <h1>CCM - Web Version <span>Evolved</span> <iconVer/></h1>
+      <h1>CCM - Web Version <span>Beta</span> <iconVer/></h1>
       <blockquote class="tip">
         <h2 class="grey-text lighten-2"
         id="sub-t-page">Bem vindo(a)!</h2>
@@ -15,13 +15,9 @@
         <div class="col m4 s6 quadros"><dam/></div>
         <div class="col m4 s6 quadros"><unused/></div>
       </div>
-      <!-- <div class="row container">
-        <div class="col m6 s12">
-          <p>Entradas esse mês: </p>
-          <p>Última entrada: </p>
-          <p>Maior ocorrência: </p>
-        </div>
-      </div> -->
+      <div class="row container">
+        <!-- <router-link :to="{ name: 'PatchNotes' }"><patch/></router-link> -->
+      </div>
     </div>
   </div>
 </template>
@@ -37,6 +33,7 @@ import unused from '../quadros/unusable';
 import solut from '../quadros/solutioned';
 import iconVer from '../svg-components/embryo-version';
 import sidebar from '../Sidebar';
+import patch from '../patchN';
 
 export default {
   name: 'dashboard',
@@ -50,16 +47,33 @@ export default {
     unused,
     sidebar,
     solut,
+    patch,
   },
 };
 </script>
 
 <style>
+  #news {
+    background-color: green;
+    color: white;
+    padding: 2px;
+    border-radius: 4px;
+  }
+  #ver {
+    font-weight: bold;
+  }
+  #main-block-pt {
+    background-color: bisque;
+    height: 150px;
+    width: 250px;
+    border: solid grey 1px;
+    border-radius: 8px;
+  }
   #main-dashboard h1{
     font-size: 32px;
   }
     #main-dashboard h1 span{
-      background-color: red;
+      background-color: blue;
       padding: 2px;
       border-radius: 5px;
       color: white;
