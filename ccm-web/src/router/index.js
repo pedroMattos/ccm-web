@@ -11,6 +11,7 @@ import Geral from '@/components/pages/Geral';
 import filterEntry from '@/components/pages/Filterpage';
 import indexFilter from '@/components/pages/indexFilter';
 import QrReader from '@/components/pages/QRCodeReader';
+import PTNotes from '@/components/pages/PatchNotes';
 
 Vue.use(Router, VueQrcodeReader, qrcode);
 
@@ -63,6 +64,11 @@ export default new Router({
       path: '/reader',
       name: 'QrReader',
       component: QrReader,
+    },
+    {
+      path: '/patch',
+      name: 'PatchNotes',
+      component: PTNotes,
     },
   ],
 });
