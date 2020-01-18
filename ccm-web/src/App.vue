@@ -2,6 +2,9 @@
   <div id="app">
     <router-view></router-view>
     <opnmenu v-if="uid"/>
+    <router-link id="camera" :to="{ name: 'QrReader' }"
+    class="btn-floating btn-large waves-effect waves-light blue">
+      <i class="material-icons">photo_camera</i></router-link>
   </div>
 </template>
 
@@ -41,6 +44,9 @@ export default {
 <style>
   li {
     list-style: none;
+  }
+  #camera {
+    display: none;
   }
   .row#app {
     margin: 0;
@@ -124,6 +130,13 @@ export default {
     .modal#modal1 {
       height: 441px;
       margin: 77px auto;
+    }
+    #camera {
+      display: block;
+      left: unset;
+      right: 47px;
+      position: fixed;
+      bottom: 53px;
     }
   }
   .modal-trigger {
