@@ -1,10 +1,11 @@
 /* eslint-disable linebreak-style */
-export default { apiKey: 'AIzaSyBpN27qSNliXGxH5BVh9YoqvzbWmLtz6Is',
-  authDomain: 'ccm-mobile-c3339.firebaseapp.com',
-  databaseURL: 'https://ccm-mobile-c3339.firebaseio.com',
-  projectId: 'ccm-mobile-c3339',
-  storageBucket: 'ccm-mobile-c3339.appspot.com',
-  messagingSenderId: '601825304256',
-  appId: '1:601825304256:web:8604b84c961e2865b39725',
-  measurementId: 'G-M7P4TVZ3R3',
+export default {
+  apiKey: 'AIzaSyBJ-IYlYnI63uxhw84RLsGA0qjd4G7qhAQ',
+  authDomain: 'ccm-web.firebaseapp.com',
+  databaseURL: 'https://ccm-web.firebaseio.com',
+  projectId: 'ccm-web',
+  storageBucket: 'ccm-web.appspot.com',
+  messagingSenderId: '861308310047',
+  appId: '1:861308310047:web:933e45608a294be7b2bb2a',
+  measurementId: 'G-N4T7365CY2',
 };
