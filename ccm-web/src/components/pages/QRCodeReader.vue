@@ -2,6 +2,11 @@
   <div class="row" id="scanner">
     <sidebar/>
     <div class="col m9 s12 main-page">
+      <router-link :to="{ name: 'Home' }"><back/></router-link>
+      <blockquote class="tip">
+        <h2 class="grey-text lighten-2"
+        id="sub-t-page">Funcionalidade em testes <br> <p>Qr Code Scanner</p></h2>
+      </blockquote>
       <video id="preview"></video>
       <p>{{ content }}</p>
     </div>
@@ -10,12 +15,14 @@
 
 <script>
 import QrScanner from 'instascan';
+import back from '../svg-components/back';
 import sidebar from '../Sidebar';
 
 export default {
   name: 'qrScan',
   components: {
     sidebar,
+    back,
   },
   data() {
     return {
@@ -47,3 +54,11 @@ export default {
   },
 };
 </script>
+
+<style>
+  #preview {
+    border: solid 1px grey;
+    border-radius: 8px;
+    background-color: azure;
+  }
+</style>
