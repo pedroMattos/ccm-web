@@ -24,7 +24,7 @@ export default {
     font-size: 12px;
   }
   #footer-id span {
-    background-color: red;
+    background-color: blue;
     padding: 1px;
     border-radius: 5px;
   }
