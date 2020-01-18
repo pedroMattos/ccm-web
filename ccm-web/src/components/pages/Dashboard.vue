@@ -15,13 +15,13 @@
         <div class="col m4 s6 quadros"><dam/></div>
         <div class="col m4 s6 quadros"><unused/></div>
       </div>
-      <div class="row container">
+      <!-- <div class="row container">
         <div class="col m6 s12">
           <p>Entradas esse mês: </p>
           <p>Última entrada: </p>
           <p>Maior ocorrência: </p>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
