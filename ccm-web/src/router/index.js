@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import VueQrcodeReader from 'vue-qrcode-reader';
+import qrcode from 'instascan';
 import Dashboard from '@/components/pages/Dashboard';
 import NewEntry from '@/components/pages/NewEntry';
 import MyEntry from '@/components/pages/MyEntries';
@@ -8,8 +10,9 @@ import Login from '@/components/pages/Login';
 import Geral from '@/components/pages/Geral';
 import filterEntry from '@/components/pages/Filterpage';
 import indexFilter from '@/components/pages/indexFilter';
+import QrReader from '@/components/pages/QRCodeReader';
 
-Vue.use(Router);
+Vue.use(Router, VueQrcodeReader, qrcode);
 
 export default new Router({
   mode: 'history',
@@ -55,6 +58,11 @@ export default new Router({
       path: '/gerence',
       name: 'Admin',
       component: Geral,
+    },
+    {
+      path: '/reader',
+      name: 'QrReader',
+      component: QrReader,
     },
   ],
 });
