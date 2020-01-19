@@ -110,7 +110,7 @@ export default {
       const issue = 'Problema:' + context.issue;
       const owner = 'Dono:' + context.owner;
       const details = 'Detalhes:' + context.details;
-      const qr = url + tombo + ';' + modelo + ';' + issue + ';' + date + ';' + email + ';' + Uid + ';' + owner + ';' + details;
+      const qr = url + tombo + ' ' + modelo + ' ' + issue + ' ' + date + ' ' + email + ' ' + Uid + ' ' + owner + ' ' + details;
       context.url = qr;
     },
     submit() {
