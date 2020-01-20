@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import VueQrcodeReader from 'vue-qrcode-reader';
-import qrcode from 'instascan';
+// import qrcode from 'instascan';
 import Dashboard from '@/components/pages/Dashboard';
 import NewEntry from '@/components/pages/NewEntry';
 import MyEntry from '@/components/pages/MyEntries';
@@ -13,7 +13,7 @@ import indexFilter from '@/components/pages/indexFilter';
 import QrReader from '@/components/pages/QRCodeReader';
 import PTNotes from '@/components/pages/PatchNotes';
 
-Vue.use(Router, VueQrcodeReader, qrcode);
+Vue.use(Router, VueQrcodeReader);
 
 export default new Router({
   mode: 'history',
