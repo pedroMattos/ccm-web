@@ -35,6 +35,10 @@ export default {
 
 <style>
   #main-all-pc {
-    background-color: green;
+    border-radius: 8px;
+    background: #efeeee;
+    box-shadow: 6px 6px 16px #cbcaca,
+                -6px -6px 16px #ffffff;
+    color: rgb(68, 68, 68);
   }
 </style>
