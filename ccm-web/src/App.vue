@@ -3,7 +3,7 @@
     <router-view></router-view>
     <opnmenu v-if="uid"/>
     <router-link v-if="uid" id="camera" :to="{ name: 'QrReader' }"
-    class="btn-floating btn-large waves-effect waves-light blue">
+    class="btn-floating btn-large waves-effect waves-light">
       <i class="material-icons">photo_camera</i></router-link>
   </div>
 </template>
@@ -95,7 +95,10 @@ export default {
     background-color: transparent;
   }
   .modal#modal1 {
-    height: 410px;
+    height: 450px;
+  }
+  .btn-floating {
+    background-color: #192d3a;
   }
   @media only screen and (max-width: 799px) {
     .main-page {
@@ -116,7 +119,7 @@ export default {
       padding: 0;
     }
     #open-menu {
-      background-color: #024873;
+      background-color: #192d3a;
       position: fixed;
       height: 45px;
       width: 45px;
