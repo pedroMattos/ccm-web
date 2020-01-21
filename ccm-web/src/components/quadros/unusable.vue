@@ -10,8 +10,6 @@
           <svgLivre/>
         </div>
       </div>
-      <router-link v-if="count"
-      :to="{ name: 'filter-entry', params: { nome: name } }"><p class="center">Ver</p></router-link>
     </div>
   </router-link>
 </template>

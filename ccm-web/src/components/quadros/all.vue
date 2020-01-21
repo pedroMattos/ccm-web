@@ -10,8 +10,6 @@
           <svgAll/>
         </div>
       </div>
-      <router-link v-if="count"
-      :to="{ name: 'AllEntries' }"><p class="center">Ver</p></router-link>
     </div>
   </router-link>
 </template>
