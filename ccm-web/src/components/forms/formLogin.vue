@@ -1,5 +1,5 @@
 <template>
-  <form method="post" @submit.prevent="login()" class="z-depth-2" id="main-form-login">
+  <form method="post" @submit.prevent="login()" class="z-depth-4" id="main-form-login">
     <div class="row">
       <div class="input-field col s12">
         <input v-model="email" id="email" type="email" class="validate">
