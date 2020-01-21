@@ -65,11 +65,12 @@ export default {
 
 <style>
   #main-sidebar {
-    background-color: #024873;
+    background-color: #192d3a;
     max-width: 300px;
     height: 100vh;
-    border-right: 1px solid #0D0D0D;
+    /* border-right: 1px solid #0D0D0D; */
     position: fixed;
+    box-shadow: 3px 3px 21px #192d3a;
   }
   #header-sidebar {
     padding: 20px;
