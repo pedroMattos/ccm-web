@@ -55,20 +55,22 @@ export default {
 #back-svg {
   width: 40px;
   height: auto;
-  background-color: white;
   border: solid #731224 1px;
   border-radius: 30px;
   padding: 10px;
   cursor: pointer;
-  transition-duration: .5s;
+  transition-duration: .3s;
   fill: #731224;
   margin-top: 20px;
+  position: relative;
+  bottom: 0px;
+  right: 0px;
 }
 #back-svg:hover {
-  background-color: #731224;
-  border: solid white 1px;
-  fill: white;
-  transition-duration: .5s;
+  transition-duration: .3s;
+  filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.452));
+  bottom: 3px;
+  right: 3px;
 }
 @media only screen and (max-width: 600px) {
   #back-svg {
