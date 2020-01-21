@@ -1,5 +1,5 @@
 <template>
-  <div id="main-notes">
+  <div class="row" id="main-notes">
     <sidebar/>
     <div class="col m9 s12 main-page">
       <router-link :to="{ name: 'Home' }"><back/></router-link>
@@ -8,8 +8,8 @@
         id="sub-t-page">Releases</h2>
       </blockquote>
       <div class="row container">
-        <div class="col m6 s12" id="releases"></div>
-        <div class="col m6 s12" id="new-releases"></div>
+        <div class="col m6 s12" id="releases">{{ patches }}</div>
+        <div class="col m6 s12" id="new-releases">{{ newpatches }}</div>
       </div>
     </div>
   </div>
@@ -34,9 +34,19 @@ export default {
     };
   },
   mounted() {
-    // const context = this;
-    // const database = bd.database();
-    // console.log(database);
+    const context = this;
+    const Patch = bd.collection('Patch');
+    const newP = bd.collection('Prox_chngs');
+    Patch.get().then((data) => {
+      data.forEach((doc) => {
+        context.patches = doc.data();
+      });
+    });
+    newP.get().then((data) => {
+      data.forEach((doc) => {
+        context.newpatches = doc.data();
+      });
+    });
   },
 };
 </script>
