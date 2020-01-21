@@ -13,7 +13,7 @@ export default {
   #beta {
     width: 25px;
     height: auto;
-    fill: blue;
+    fill: rgba(75, 75, 185, 0.733);
     transform: translateY(5.5px);
   }
 </style>
