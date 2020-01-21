@@ -75,7 +75,7 @@ export default {
     font-size: 32px;
   }
   #main-dashboard h1 span{
-    background-color: blue;
+    background-color: rgba(75, 75, 185, 0.733);
     padding: 2px;
     border-radius: 5px;
     color: white;
