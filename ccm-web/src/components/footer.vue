@@ -13,12 +13,8 @@ export default {
 
 <style>
   #footer-id {
-    background-color: #024873;
     color: #ffffff;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    transform: translateY(200px);
   }
   #footer-id p {
     font-size: 12px;
