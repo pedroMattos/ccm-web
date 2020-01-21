@@ -198,5 +198,6 @@ export default {
   .blocks .entry {
     padding-top: 10px;
     padding-bottom: 10px;
+    cursor: default;
   }
 </style>
