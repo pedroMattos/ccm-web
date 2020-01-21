@@ -17,7 +17,7 @@ export default {
 
 <style>
   #main-login {
-    background-color: rgb(36, 36, 36);
-    height: 100vh;
+    background-color: rgb(45, 45, 45);
+    min-height: 100vh;
   }
 </style>
