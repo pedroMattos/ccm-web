@@ -47,7 +47,7 @@
           </p>
         </div>
         <div class="center">
-          <input type="submit" value="Criar usuário" class="btn col s12">
+          <input type="submit" id="new-user" value="Criar usuário" class="btn col s12 z-depth-0">
         </div>
       </div>
     </form>
@@ -127,5 +127,12 @@ export default {
   }
   .alert {
     border-left: 4px red solid;
+  }
+  #new-user {
+    background: #efeeee;
+    box-shadow: 6px 6px 8px #cbcaca,
+                -6px -6px 8px #ffffff !important;
+    border-radius: 5px;
+    color: rgb(105, 105, 105);
   }
 </style>
