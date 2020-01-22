@@ -52,6 +52,9 @@ export default {
     margin: 0;
     padding: 0;
   }
+  #app {
+    background: #efeeee;
+  }
   .main-page {
     padding-top: 20px;
     padding-left: 20px;
