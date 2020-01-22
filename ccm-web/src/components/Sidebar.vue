@@ -2,8 +2,10 @@
   <div class="col m3" ref="sidebar" id="main-sidebar">
     <div id="header-sidebar">
       <p>{{ name }}</p>
-      <p>{{ email }}</p>
+      <p>Uid:</p>
+      <a id="uid" class="small-text">{{ email }}</a>
     </div>
+    <a id="tap" class="waves-effect waves-light btn" @click.prevent="discovery">?</a>
     <div id="separation"></div>
     <div id="body-sidebar">
       <ul>
@@ -32,6 +34,8 @@ export default {
     };
   },
   created() {
+    // eslint-disable-next-line no-undef
+    $(document).ready(() => { $('.tap-target').tapTarget(); });
     const context = this;
     const docRef = auth.collection('Controller');
     docRef.get().then((doc) => {
@@ -49,7 +53,7 @@ export default {
       // se user.uid não estiver vazio, loga, senao nulo
       window.uid = user ? user.uid : null;
       if (window.uid) {
-        context.email = auth.app.auth().currentUser.email;
+        context.email = auth.app.auth().currentUser.uid;
       }
     });
   },
@@ -59,11 +63,19 @@ export default {
       this.$router.push({ name: 'Login' });
       location.reload();
     },
+    // init feature descovery
+    discovery() {
+      // eslint-disable-next-line no-undef
+      // $('.tap-target').tapTarget('open');
+    },
   },
 };
 </script>
 
 <style>
+  .small-text {
+    font-size: 12px;
+  }
   #main-sidebar {
     background-color: #192d3a;
     max-width: 300px;
