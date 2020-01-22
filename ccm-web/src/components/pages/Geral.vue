@@ -73,8 +73,10 @@ export default {
 
 <style>
   #title-expand-newuser {
-    background-color: #024873;
-    color: white;
+    background: #efeeee;
+    box-shadow: 2px 2px 8px #cbcaca, -2px -2px 8px #ffffff !important;
+    border-radius: 5px;
+    color: rgb(105, 105, 105);
     width: 100%;
     max-width: 200px;
     padding: 5px;
