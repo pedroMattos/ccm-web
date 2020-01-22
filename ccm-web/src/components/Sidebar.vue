@@ -5,7 +5,7 @@
       <p>Uid:</p>
       <a id="uid" class="small-text">{{ email }}</a>
     </div>
-    <a id="tap" class="waves-effect waves-light btn" @click.prevent="discovery">?</a>
+    <p id="tap" class="waves-effect waves-light" @click.prevent="discovery"><span>?</span></p>
     <div id="separation"></div>
     <div id="body-sidebar">
       <ul>
@@ -65,8 +65,13 @@ export default {
     },
     // init feature descovery
     discovery() {
-      // eslint-disable-next-line no-undef
-      // $('.tap-target').tapTarget('open');
+      const card = document.createElement('div');
+      const app = document.getElementById('app');
+      let dist = document.getElementById('tap').offsetTop;
+      dist -= 65;
+      app.appendChild(card);
+      card.setAttribute('id', 'feature-discover');
+      card.setAttribute('style', `top:${dist}px`);
     },
   },
 };
@@ -131,5 +136,28 @@ export default {
   #header-sidebar {
     padding: 40px 20px 20px 20px;
   }
+}
+#tap{
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid white;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  color: white;
+  transform: translate(230px, -55px);
+}
+#tap:hover {
+  background-color: white;
+  color: black;
+}
+#feature-discover {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  background-color: black;
+  left: 275px;
+  border-radius: 8px;
+  box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.541);
 }
 </style>
