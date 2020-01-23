@@ -31,6 +31,7 @@ export default {
       email: '',
       nivel: '',
       permiss: '',
+      show: false,
     };
   },
   created() {
@@ -65,13 +66,31 @@ export default {
     },
     // init feature descovery
     discovery() {
-      const card = document.createElement('div');
-      const app = document.getElementById('app');
-      let dist = document.getElementById('tap').offsetTop;
-      dist -= 65;
-      app.appendChild(card);
-      card.setAttribute('id', 'feature-discover');
-      card.setAttribute('style', `top:${dist}px`);
+      if (this.show === false) {
+        const card = document.createElement('div');
+        const app = document.getElementById('app');
+        const paragraph = document.createElement('p');
+        const text = document.createElement('p');
+        text.textContent = 'Este é o seu Uid, um identificador único. Caso precise recuperar sua conta somente com ele.';
+        paragraph.textContent = this.email;
+        let dist = document.getElementById('tap').offsetTop;
+        dist -= 65;
+        card.appendChild(paragraph);
+        card.appendChild(text);
+        app.appendChild(card);
+        card.classList.add('removed');
+        card.setAttribute('id', 'feature-discover');
+        card.setAttribute('style', `top:${dist}px;`);
+        this.show = true;
+        setTimeout(() => {
+          card.classList.remove('removed');
+        }, 1500);
+      } else {
+        const card = document.getElementById('feature-discover');
+        const app = document.getElementById('app');
+        app.removeChild(card);
+        this.show = false;
+      }
     },
   },
 };
@@ -152,12 +171,23 @@ export default {
   color: black;
 }
 #feature-discover {
-  height: 50px;
-  width: 50px;
+  height: 100px;
+  width: 342px;
   position: absolute;
-  background-color: black;
+  background-color: rgb(94, 94, 94);
   left: 275px;
   border-radius: 8px;
   box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.541);
+  color: white;
+  padding-left: 20px;
+  padding-bottom: 9px;
+  transform: translateX(0);
+  opacity: 1;
+  transition-duration: .5s;
+}
+.removed {
+  transform: translateX(-50%);
+  opacity: 0;
+  transition-duration: .5s;
 }
 </style>
