@@ -3,7 +3,7 @@
     <div id="header-sidebar">
       <p>{{ name }}</p>
       <p>Uid:</p>
-      <a id="uid" class="small-text">{{ email }}</a>
+      <p id="uid" class="small-text">{{ email }}</p>
     </div>
     <p id="tap" class="waves-effect waves-light" @click.prevent="discovery"><span>?</span></p>
     <div id="separation"></div>
@@ -134,7 +134,7 @@ export default {
     padding: 0;
   }
   #body-sidebar ul li:hover {
-    background-color: #023E73;
+    background-color: rgba(34, 64, 90, 0.555);
     border-bottom: .5px solid transparent;
     transition-duration: .5s;
   }
@@ -184,6 +184,9 @@ export default {
   transform: translateX(0);
   opacity: 1;
   transition-duration: .5s;
+}
+#uid {
+  margin: 0;
 }
 .removed {
   transform: translateX(-50%);
