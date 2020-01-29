@@ -31,7 +31,7 @@ export default {
     font-weight: 600;
   }
   #main-see-cats > div {
-    width: 150px;
+    /* width: 150px; */
     margin: 0 10px;
     padding: 5px;
     border-radius: 2px;
@@ -46,6 +46,25 @@ export default {
   }
   #main-see-cats a {
     color: white;
+  }
+  #main-see-cats .em-manutencao {
+    border: #0248737a solid 1px;
+    background-color: #0248737a;
+  }
+  #main-see-cats .sem-dono {
+    border: solid rgba(80, 129, 173, 0.521) 1px;
+    background-color: rgba(80, 129, 173, 0.521);
+  }
+  #main-see-cats .solucionada {
+    border: solid #009afabd 1px;
+    background-color: #009afabd;
+  }
+  #main-see-cats .inutilizado {
+    border: solid rgba(247, 72, 72, 0.411) 1px;
+  }
+  #main-see-cats .estado-critico {
+    border: 1px rgb(179, 17, 47) solid;
+    background-color: rgb(179, 17, 47);
   }
   @media only screen and (max-width: 799px) {
     #main-see-cats {
